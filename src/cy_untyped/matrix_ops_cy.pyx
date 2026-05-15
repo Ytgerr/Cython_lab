@@ -26,13 +26,6 @@ def matmul(A, B):
     return C
 
 
-def dot_product(a, b):
-    s = 0.0
-    for x, y in zip(a, b):
-        s += x * y
-    return s
-
-
 def matrix_add(A, B):
     n = len(A)
     m = len(A[0])
@@ -43,19 +36,17 @@ def matrix_add(A, B):
     return C
 
 
-def transpose(A):
-    n = len(A)
-    m = len(A[0])
-    T = zeros(m, n)
-    for i in range(n):
-        for j in range(m):
-            T[j][i] = A[i][j]
-    return T
-
-
-def frobenius_norm(A):
-    s = 0.0
-    for row in A:
-        for v in row:
-            s += v * v
-    return s ** 0.5
+def monte_carlo_pi(int n_samples):
+    """
+    Monte Carlo pi estimation — untyped Cython.
+    Variables x, y, inside are still PyObject* — boxing remains.
+    Only the interpreter dispatch loop is eliminated.
+    """
+    import random
+    inside = 0
+    for _ in range(n_samples):
+        x = random.random()
+        y = random.random()
+        if x * x + y * y < 1.0:
+            inside += 1
+    return 4.0 * inside / n_samples

@@ -4,6 +4,7 @@ All arithmetic is done with Python lists of lists (no NumPy).
 """
 
 from __future__ import annotations
+import random
 from typing import List
 
 Matrix = List[List[float]]
@@ -28,14 +29,6 @@ def matmul(A: Matrix, B: Matrix) -> Matrix:
     return C
 
 
-def dot_product(a: List[float], b: List[float]) -> float:
-    """Dot product of two 1-D vectors."""
-    s = 0.0
-    for x, y in zip(a, b):
-        s += x * y
-    return s
-
-
 def matrix_add(A: Matrix, B: Matrix) -> Matrix:
     n, m = len(A), len(A[0])
     C = zeros(n, m)
@@ -45,18 +38,20 @@ def matrix_add(A: Matrix, B: Matrix) -> Matrix:
     return C
 
 
-def transpose(A: Matrix) -> Matrix:
-    n, m = len(A), len(A[0])
-    T = zeros(m, n)
-    for i in range(n):
-        for j in range(m):
-            T[j][i] = A[i][j]
-    return T
+def monte_carlo_pi(n_samples: int) -> float:
+    """
+    Estimate pi using Monte Carlo method.
+    Throw n_samples random points into the unit square [0,1)^2.
+    Count how many fall inside the unit circle (x^2 + y^2 < 1).
+    pi ~ 4 * inside / n_samples
 
-
-def frobenius_norm(A: Matrix) -> float:
-    s = 0.0
-    for row in A:
-        for v in row:
-            s += v * v
-    return s ** 0.5
+    This is a pure scalar loop — every variable is a PyObject*.
+    Demonstrates boxing overhead perfectly.
+    """
+    inside = 0
+    for _ in range(n_samples):
+        x = random.random()
+        y = random.random()
+        if x * x + y * y < 1.0:
+            inside += 1
+    return 4.0 * inside / n_samples

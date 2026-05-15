@@ -1,11 +1,16 @@
 /*
- * matrix_ops.c — pure C matrix operations for performance comparison.
+ * matrix_ops.c — pure C matrix operations + Monte Carlo pi estimation.
  *
- * Compile standalone:
- *   gcc -O2 -march=native -o matrix_bench matrix_ops.c -lm
+ * Compile standalone benchmark (outputs JSON):
+ *   Windows MSVC (from VS Developer Prompt):
+ *     cl /O2 /Fe:src\c_impl\matrix_bench.exe src\c_impl\matrix_ops.c
  *
- * Or as a shared library (called from Python via ctypes):
- *   gcc -O2 -march=native -shared -fPIC -o matrix_ops.so matrix_ops.c -lm
+ *   Linux / macOS:
+ *     gcc -O2 -o src/c_impl/matrix_bench src/c_impl/matrix_ops.c -lm
+ *
+ * Run:
+ *   src\c_impl\matrix_bench.exe
+ *   -> prints JSON to stdout, parsed by bench_runner.py
  */
 
 #include "matrix_ops.h"
@@ -14,6 +19,9 @@
 #include <string.h>
 #include <stdio.h>
 #include <time.h>
+#ifdef _WIN32
+#include <windows.h>
+#endif
 
 /* -------------------------------------------------------------------------
  * Helpers
@@ -31,7 +39,7 @@ void free_matrix(double *A) { free(A); }
 #define IDX(A, cols, i, j)  ((A)[(i)*(cols)+(j)])
 
 /* -------------------------------------------------------------------------
- * matmul  C[n×m] = A[n×k] × B[k×m]
+ * matmul  C[n x m] = A[n x k] x B[k x m]
  * ---------------------------------------------------------------------- */
 void matmul(const double * restrict A,
             const double * restrict B,
@@ -49,17 +57,6 @@ void matmul(const double * restrict A,
 }
 
 /* -------------------------------------------------------------------------
- * dot_product
- * ---------------------------------------------------------------------- */
-double dot_product(const double * restrict a,
-                   const double * restrict b,
-                   int n) {
-    double s = 0.0;
-    for (int i = 0; i < n; i++) s += a[i] * b[i];
-    return s;
-}
-
-/* -------------------------------------------------------------------------
  * matrix_add  C = A + B
  * ---------------------------------------------------------------------- */
 void matrix_add(const double * restrict A,
@@ -71,35 +68,45 @@ void matrix_add(const double * restrict A,
 }
 
 /* -------------------------------------------------------------------------
- * transpose  T[m×n] = A[n×m]^T
+ * monte_carlo_pi — estimate pi by throwing random darts
+ *
+ * Throw n_samples points uniformly into [0,1)^2.
+ * Count how many land inside the unit circle (x^2 + y^2 < 1).
+ * pi ~ 4 * inside / n_samples
+ *
+ * Uses rand() — same approach as Cython typed version.
+ * All variables are C types on the stack: no malloc, no boxing.
  * ---------------------------------------------------------------------- */
-void transpose(const double * restrict A,
-               double       * restrict T,
-               int n, int m) {
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < m; j++)
-            IDX(T, n, j, i) = IDX(A, m, i, j);
+double monte_carlo_pi(int n_samples) {
+    int inside = 0;
+    double inv = 1.0 / RAND_MAX;
+    for (int i = 0; i < n_samples; i++) {
+        double x = rand() * inv;
+        double y = rand() * inv;
+        if (x * x + y * y < 1.0) inside++;
+    }
+    return 4.0 * inside / n_samples;
 }
 
 /* -------------------------------------------------------------------------
- * frobenius_norm
+ * Standalone benchmark — outputs JSON to stdout
+ * Compiled with: cl /O2 /Fe:matrix_bench.exe matrix_ops.c
+ *            or: gcc -O2 -o matrix_bench matrix_ops.c -lm
  * ---------------------------------------------------------------------- */
-double frobenius_norm(const double *A, int n, int m) {
-    double s = 0.0;
-    int total = n * m;
-    for (int i = 0; i < total; i++) s += A[i] * A[i];
-    return sqrt(s);
-}
 
-/* -------------------------------------------------------------------------
- * Standalone benchmark (compiled with -DSTANDALONE)
- * ---------------------------------------------------------------------- */
-#ifdef STANDALONE
-
+/* High-resolution wall-clock timer */
 static double wall_time(void) {
+#ifdef _WIN32
+    /* Windows: QueryPerformanceCounter gives ~100ns resolution */
+    LARGE_INTEGER freq, cnt;
+    QueryPerformanceFrequency(&freq);
+    QueryPerformanceCounter(&cnt);
+    return (double)cnt.QuadPart / (double)freq.QuadPart;
+#else
     struct timespec ts;
     clock_gettime(CLOCK_MONOTONIC, &ts);
     return ts.tv_sec + ts.tv_nsec * 1e-9;
+#endif
 }
 
 static void fill_random(double *A, int total) {
@@ -109,13 +116,16 @@ static void fill_random(double *A, int total) {
 
 int main(void) {
     srand(42);
-    int sizes[] = {64, 128, 256, 512};
-    int nruns = 5;
+    int sizes[]  = {64, 128};
+    int n_sizes  = 2;
+    int nruns    = 5;
+    int mc_n     = 1000000;
 
-    printf("%-6s  %-12s  %-12s  %-12s\n",
-           "N", "matmul(s)", "add(s)", "norm");
+    printf("[\n");
+    int first = 1;
 
-    for (int si = 0; si < 4; si++) {
+    /* ── Matrix operations ─────────────────────────────────────────────── */
+    for (int si = 0; si < n_sizes; si++) {
         int N = sizes[si];
         double *A = alloc_matrix(N, N);
         double *B = alloc_matrix(N, N);
@@ -123,23 +133,45 @@ int main(void) {
         fill_random(A, N * N);
         fill_random(B, N * N);
 
-        /* matmul */
-        double t0 = wall_time();
-        for (int r = 0; r < nruns; r++) matmul(A, B, C, N, N, N);
-        double t_mm = (wall_time() - t0) / nruns;
+        /* matmul — best of nruns */
+        double best_mm = 1e18;
+        for (int r = 0; r < nruns; r++) {
+            double t0 = wall_time();
+            matmul(A, B, C, N, N, N);
+            double dt = wall_time() - t0;
+            if (dt < best_mm) best_mm = dt;
+        }
 
-        /* add */
-        t0 = wall_time();
-        for (int r = 0; r < nruns; r++) matrix_add(A, B, C, N, N);
-        double t_add = (wall_time() - t0) / nruns;
+        /* matrix_add — best of nruns */
+        double best_add = 1e18;
+        for (int r = 0; r < nruns; r++) {
+            double t0 = wall_time();
+            matrix_add(A, B, C, N, N);
+            double dt = wall_time() - t0;
+            if (dt < best_add) best_add = dt;
+        }
 
-        double norm = frobenius_norm(A, N, N);
-
-        printf("%-6d  %-12.6f  %-12.6f  %-12.4f\n",
-               N, t_mm, t_add, norm);
+        if (!first) printf(",\n"); first = 0;
+        printf("  {\"impl\":\"c\",\"N\":%d,\"op\":\"matmul\",\"time_s\":%.9f,\"mem_bytes\":0}",
+               N, best_mm);
+        printf(",\n  {\"impl\":\"c\",\"N\":%d,\"op\":\"matrix_add\",\"time_s\":%.9f,\"mem_bytes\":0}",
+               N, best_add);
 
         free_matrix(A); free_matrix(B); free_matrix(C);
     }
+
+    /* ── Monte Carlo ───────────────────────────────────────────────────── */
+    double best_mc = 1e18;
+    for (int r = 0; r < nruns; r++) {
+        srand(42);
+        double t0 = wall_time();
+        monte_carlo_pi(mc_n);
+        double dt = wall_time() - t0;
+        if (dt < best_mc) best_mc = dt;
+    }
+    printf(",\n  {\"impl\":\"c\",\"N\":%d,\"op\":\"monte_carlo\",\"time_s\":%.9f,\"mem_bytes\":0}",
+           mc_n, best_mc);
+
+    printf("\n]\n");
     return 0;
 }
-#endif /* STANDALONE */

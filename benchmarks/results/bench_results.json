@@ -3,43 +3,29 @@
     "impl": "python",
     "N": 64,
     "op": "matmul",
-    "time_s": 0.016629000019747764,
+    "time_s": 0.014982799999415874,
     "mem_bytes": 135448
   },
   {
     "impl": "python",
     "N": 64,
     "op": "matrix_add",
-    "time_s": 0.0002969999914057553,
+    "time_s": 0.00027439999394118786,
     "mem_bytes": 129248
-  },
-  {
-    "impl": "python",
-    "N": 64,
-    "op": "frobenius_norm",
-    "time_s": 0.00012500002048909664,
-    "mem_bytes": 96
   },
   {
     "impl": "cy_untyped",
     "N": 64,
     "op": "matmul",
-    "time_s": 0.009167400014121085,
-    "mem_bytes": 129256
+    "time_s": 0.008037299965508282,
+    "mem_bytes": 129232
   },
   {
     "impl": "cy_untyped",
     "N": 64,
     "op": "matrix_add",
-    "time_s": 0.0001094000181183219,
+    "time_s": 0.00011779996566474438,
     "mem_bytes": 129184
-  },
-  {
-    "impl": "cy_untyped",
-    "N": 64,
-    "op": "frobenius_norm",
-    "time_s": 9.14999982342124e-05,
-    "mem_bytes": 0
   },
   {
     "impl": "cy_typed",
@@ -52,119 +38,105 @@
     "impl": "cy_typed",
     "N": 64,
     "op": "matrix_add",
-    "time_s": 5.399982910603285e-06,
+    "time_s": 5.499983672052622e-06,
     "mem_bytes": 33568
-  },
-  {
-    "impl": "cy_typed",
-    "N": 64,
-    "op": "frobenius_norm",
-    "time_s": 5.299982149153948e-06,
-    "mem_bytes": 264
-  },
-  {
-    "impl": "c_ctypes",
-    "N": 64,
-    "op": "matmul",
-    "time_s": 0.00010449998080730438,
-    "mem_bytes": 36016
-  },
-  {
-    "impl": "c_ctypes",
-    "N": 64,
-    "op": "matrix_add",
-    "time_s": 1.0800024028867483e-05,
-    "mem_bytes": 35568
-  },
-  {
-    "impl": "c_ctypes",
-    "N": 64,
-    "op": "frobenius_norm",
-    "time_s": 8.400005754083395e-06,
-    "mem_bytes": 960
   },
   {
     "impl": "python",
     "N": 128,
     "op": "matmul",
-    "time_s": 0.1324021999607794,
+    "time_s": 0.1444637999520637,
     "mem_bytes": 525880
   },
   {
     "impl": "python",
     "N": 128,
     "op": "matrix_add",
-    "time_s": 0.0011130999773740768,
+    "time_s": 0.0010577000211924314,
     "mem_bytes": 525776
-  },
-  {
-    "impl": "python",
-    "N": 128,
-    "op": "frobenius_norm",
-    "time_s": 0.0004960999940522015,
-    "mem_bytes": 96
   },
   {
     "impl": "cy_untyped",
     "N": 128,
     "op": "matmul",
-    "time_s": 0.07476409996161237,
-    "mem_bytes": 525728
+    "time_s": 0.06839259999105707,
+    "mem_bytes": 525704
   },
   {
     "impl": "cy_untyped",
     "N": 128,
     "op": "matrix_add",
-    "time_s": 0.00044700002763420343,
+    "time_s": 0.0004632000345736742,
     "mem_bytes": 525656
-  },
-  {
-    "impl": "cy_untyped",
-    "N": 128,
-    "op": "frobenius_norm",
-    "time_s": 0.0003925999626517296,
-    "mem_bytes": 0
   },
   {
     "impl": "cy_typed",
     "N": 128,
     "op": "matmul",
-    "time_s": 0.002159399969968945,
+    "time_s": 0.0021614000434055924,
     "mem_bytes": 132048
   },
   {
     "impl": "cy_typed",
     "N": 128,
     "op": "matrix_add",
-    "time_s": 1.6300007700920105e-05,
+    "time_s": 1.9599974621087313e-05,
     "mem_bytes": 131872
   },
   {
-    "impl": "cy_typed",
-    "N": 128,
-    "op": "frobenius_norm",
-    "time_s": 1.9199971575289965e-05,
-    "mem_bytes": 264
+    "impl": "python",
+    "N": 1000000,
+    "op": "monte_carlo",
+    "time_s": 0.16419500001939014,
+    "mem_bytes": 128
   },
   {
-    "impl": "c_ctypes",
+    "impl": "cy_untyped",
+    "N": 1000000,
+    "op": "monte_carlo",
+    "time_s": 0.1028158999979496,
+    "mem_bytes": 64
+  },
+  {
+    "impl": "cy_typed",
+    "N": 1000000,
+    "op": "monte_carlo",
+    "time_s": 0.013480300025548786,
+    "mem_bytes": 0
+  },
+  {
+    "impl": "c",
+    "N": 64,
+    "op": "matmul",
+    "time_s": 0.0001155,
+    "mem_bytes": 0
+  },
+  {
+    "impl": "c",
+    "N": 64,
+    "op": "matrix_add",
+    "time_s": 1.8e-06,
+    "mem_bytes": 0
+  },
+  {
+    "impl": "c",
     "N": 128,
     "op": "matmul",
-    "time_s": 0.0009009000496007502,
-    "mem_bytes": 134232
+    "time_s": 0.0009763,
+    "mem_bytes": 0
   },
   {
-    "impl": "c_ctypes",
+    "impl": "c",
     "N": 128,
     "op": "matrix_add",
-    "time_s": 1.580000389367342e-05,
-    "mem_bytes": 133872
+    "time_s": 6.9e-06,
+    "mem_bytes": 0
   },
   {
-    "impl": "c_ctypes",
-    "N": 128,
-    "op": "frobenius_norm",
-    "time_s": 2.269999822601676e-05,
-    "mem_bytes": 960
+    "impl": "c",
+    "N": 1000000,
+    "op": "monte_carlo",
+    "time_s": 0.0115211,
+    "mem_bytes": 0
   }
 ]
