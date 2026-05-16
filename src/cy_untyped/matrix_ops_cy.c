@@ -1974,13 +1974,6 @@ static PyObject *__Pyx__Import(PyObject *name, PyObject *const *imported_names, 
 /* Import.proto */
 static CYTHON_INLINE PyObject *__Pyx_Import(PyObject *name, PyObject *const *imported_names, Py_ssize_t len_imported_names, PyObject *qualname, int level);
 
-/* PyObjectFastCallMethod.proto */
-#if CYTHON_VECTORCALL && PY_VERSION_HEX >= 0x03090000
-#define __Pyx_PyObject_FastCallMethod(name, args, nargsf) PyObject_VectorcallMethod(name, args, nargsf, NULL)
-#else
-static PyObject *__Pyx_PyObject_FastCallMethod(PyObject *name, PyObject *const *args, size_t nargsf);
-#endif
-
 /* PyLongBinop.proto */
 #if !CYTHON_COMPILING_IN_PYPY
 static CYTHON_INLINE PyObject* __Pyx_PyLong_AddObjC(PyObject *op1, PyObject *op2, long intval, int inplace, int zerodivision_check);
@@ -2321,7 +2314,7 @@ static const char __pyx_k_Cython_matrix_operations_NO_sta[] = "\nCython matrix o
 static PyObject *__pyx_pf_3src_10cy_untyped_13matrix_ops_cy_zeros(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_n, int __pyx_v_m); /* proto */
 static PyObject *__pyx_pf_3src_10cy_untyped_13matrix_ops_cy_2matmul(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_A, PyObject *__pyx_v_B); /* proto */
 static PyObject *__pyx_pf_3src_10cy_untyped_13matrix_ops_cy_4matrix_add(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_A, PyObject *__pyx_v_B); /* proto */
-static PyObject *__pyx_pf_3src_10cy_untyped_13matrix_ops_cy_6monte_carlo_pi(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_n_samples); /* proto */
+static PyObject *__pyx_pf_3src_10cy_untyped_13matrix_ops_cy_6simulate_dice_game(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_n_rounds); /* proto */
 /* #### Code section: late_includes ### */
 /* #### Code section: module_state ### */
 /* SmallCodeConfig */
@@ -2345,8 +2338,9 @@ typedef struct {
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_items;
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_pop;
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_values;
+  PyObject *__pyx_tuple[1];
   PyObject *__pyx_codeobj_tab[4];
-  PyObject *__pyx_string_tab[42];
+  PyObject *__pyx_string_tab[43];
   PyObject *__pyx_number_tab[5];
 /* #### Code section: module_state_contents ### */
 /* CommonTypesMetaclass.module_state_decls */
@@ -2397,44 +2391,45 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u__2 __pyx_string_tab[6]
 #define __pyx_n_u_asyncio_coroutines __pyx_string_tab[7]
 #define __pyx_n_u_cline_in_traceback __pyx_string_tab[8]
-#define __pyx_n_u_func __pyx_string_tab[9]
-#define __pyx_n_u_i __pyx_string_tab[10]
-#define __pyx_n_u_inside __pyx_string_tab[11]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[12]
-#define __pyx_n_u_items __pyx_string_tab[13]
-#define __pyx_n_u_j __pyx_string_tab[14]
-#define __pyx_n_u_k __pyx_string_tab[15]
-#define __pyx_n_u_m __pyx_string_tab[16]
-#define __pyx_n_u_main __pyx_string_tab[17]
-#define __pyx_n_u_matmul __pyx_string_tab[18]
-#define __pyx_n_u_matrix_add __pyx_string_tab[19]
-#define __pyx_n_u_module __pyx_string_tab[20]
-#define __pyx_n_u_monte_carlo_pi __pyx_string_tab[21]
+#define __pyx_n_u_die1 __pyx_string_tab[9]
+#define __pyx_n_u_die2 __pyx_string_tab[10]
+#define __pyx_n_u_func __pyx_string_tab[11]
+#define __pyx_n_u_i __pyx_string_tab[12]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[13]
+#define __pyx_n_u_items __pyx_string_tab[14]
+#define __pyx_n_u_j __pyx_string_tab[15]
+#define __pyx_n_u_k __pyx_string_tab[16]
+#define __pyx_n_u_m __pyx_string_tab[17]
+#define __pyx_n_u_main __pyx_string_tab[18]
+#define __pyx_n_u_matmul __pyx_string_tab[19]
+#define __pyx_n_u_matrix_add __pyx_string_tab[20]
+#define __pyx_n_u_module __pyx_string_tab[21]
 #define __pyx_n_u_n __pyx_string_tab[22]
-#define __pyx_n_u_n_samples __pyx_string_tab[23]
+#define __pyx_n_u_n_rounds __pyx_string_tab[23]
 #define __pyx_n_u_name __pyx_string_tab[24]
 #define __pyx_n_u_p __pyx_string_tab[25]
 #define __pyx_n_u_pop __pyx_string_tab[26]
 #define __pyx_n_u_qualname __pyx_string_tab[27]
-#define __pyx_n_u_random __pyx_string_tab[28]
-#define __pyx_n_u_s __pyx_string_tab[29]
-#define __pyx_n_u_set_name __pyx_string_tab[30]
-#define __pyx_n_u_setdefault __pyx_string_tab[31]
-#define __pyx_n_u_src_cy_untyped_matrix_ops_cy __pyx_string_tab[32]
-#define __pyx_n_u_test __pyx_string_tab[33]
-#define __pyx_n_u_values __pyx_string_tab[34]
-#define __pyx_n_u_x __pyx_string_tab[35]
-#define __pyx_n_u_y __pyx_string_tab[36]
-#define __pyx_n_u_zeros __pyx_string_tab[37]
-#define __pyx_kp_b_iso88591_1AWBd_uAQ __pyx_string_tab[38]
-#define __pyx_kp_b_iso88591_1A_1AQa_1A_Qc_U_1_E_aq_U_1_Qar __pyx_string_tab[39]
-#define __pyx_kp_b_iso88591_1A_1AQa_Qc_U_1_E_aq_Qb_aq_3b_AQ __pyx_string_tab[40]
-#define __pyx_kp_b_iso88591_Q_U_1_F_F_2Rr_2Rr_1_a_4r __pyx_string_tab[41]
+#define __pyx_n_u_randint __pyx_string_tab[28]
+#define __pyx_n_u_random __pyx_string_tab[29]
+#define __pyx_n_u_s __pyx_string_tab[30]
+#define __pyx_n_u_set_name __pyx_string_tab[31]
+#define __pyx_n_u_setdefault __pyx_string_tab[32]
+#define __pyx_n_u_simulate_dice_game __pyx_string_tab[33]
+#define __pyx_n_u_src_cy_untyped_matrix_ops_cy __pyx_string_tab[34]
+#define __pyx_n_u_test __pyx_string_tab[35]
+#define __pyx_n_u_values __pyx_string_tab[36]
+#define __pyx_n_u_wins __pyx_string_tab[37]
+#define __pyx_n_u_zeros __pyx_string_tab[38]
+#define __pyx_kp_b_iso88591_1AWBd_uAQ __pyx_string_tab[39]
+#define __pyx_kp_b_iso88591_1A_1AQa_1A_Qc_U_1_E_aq_U_1_Qar __pyx_string_tab[40]
+#define __pyx_kp_b_iso88591_1A_1AQa_Qc_U_1_E_aq_Qb_aq_3b_AQ __pyx_string_tab[41]
+#define __pyx_kp_b_iso88591_1_U_1_vXQc_vXQc_5_s_A_5 __pyx_string_tab[42]
 #define __pyx_float_0_0 __pyx_number_tab[0]
-#define __pyx_float_1_0 __pyx_number_tab[1]
-#define __pyx_float_4_0 __pyx_number_tab[2]
-#define __pyx_int_0 __pyx_number_tab[3]
-#define __pyx_int_1 __pyx_number_tab[4]
+#define __pyx_int_0 __pyx_number_tab[1]
+#define __pyx_int_1 __pyx_number_tab[2]
+#define __pyx_int_6 __pyx_number_tab[3]
+#define __pyx_int_7 __pyx_number_tab[4]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -2449,8 +2444,9 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   #if CYTHON_PEP489_MULTI_PHASE_INIT
   __Pyx_State_RemoveModule(NULL);
   #endif
+  for (int i=0; i<1; ++i) { Py_CLEAR(clear_module_state->__pyx_tuple[i]); }
   for (int i=0; i<4; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<42; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<43; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   for (int i=0; i<5; ++i) { Py_CLEAR(clear_module_state->__pyx_number_tab[i]); }
 /* #### Code section: module_state_clear_contents ### */
 /* CommonTypesMetaclass.module_state_clear */
@@ -2474,8 +2470,9 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_empty_tuple);
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_empty_bytes);
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_empty_unicode);
+  for (int i=0; i<1; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_tuple[i]); }
   for (int i=0; i<4; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<42; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<43; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   for (int i=0; i<5; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_number_tab[i]); }
 /* #### Code section: module_state_traverse_contents ### */
 /* CommonTypesMetaclass.module_state_traverse */
@@ -3267,29 +3264,29 @@ static PyObject *__pyx_pf_3src_10cy_untyped_13matrix_ops_cy_4matrix_add(CYTHON_U
 /* "src/cy_untyped/matrix_ops_cy.pyx":39
  * 
  * 
- * def monte_carlo_pi(int n_samples):             # <<<<<<<<<<<<<<
+ * def simulate_dice_game(int n_rounds):             # <<<<<<<<<<<<<<
  *     """
- *     Monte Carlo pi estimation  untyped Cython.
+ *     Monte Carlo dice game  untyped Cython.
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3src_10cy_untyped_13matrix_ops_cy_7monte_carlo_pi(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_3src_10cy_untyped_13matrix_ops_cy_7simulate_dice_game(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_3src_10cy_untyped_13matrix_ops_cy_6monte_carlo_pi, "\n    Monte Carlo pi estimation \342\200\224 untyped Cython.\n    Variables x, y, inside are still PyObject* \342\200\224 boxing remains.\n    Only the interpreter dispatch loop is eliminated.\n    ");
-static PyMethodDef __pyx_mdef_3src_10cy_untyped_13matrix_ops_cy_7monte_carlo_pi = {"monte_carlo_pi", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_3src_10cy_untyped_13matrix_ops_cy_7monte_carlo_pi, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_3src_10cy_untyped_13matrix_ops_cy_6monte_carlo_pi};
-static PyObject *__pyx_pw_3src_10cy_untyped_13matrix_ops_cy_7monte_carlo_pi(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_3src_10cy_untyped_13matrix_ops_cy_6simulate_dice_game, "\n    Monte Carlo dice game \342\200\224 untyped Cython.\n\n    Roll 2 dice per round, win if sum >= 7.\n    Variables die1, die2, wins are still PyObject* \342\200\224 boxing remains.\n    Only the interpreter dispatch loop is eliminated.\n    ");
+static PyMethodDef __pyx_mdef_3src_10cy_untyped_13matrix_ops_cy_7simulate_dice_game = {"simulate_dice_game", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_3src_10cy_untyped_13matrix_ops_cy_7simulate_dice_game, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_3src_10cy_untyped_13matrix_ops_cy_6simulate_dice_game};
+static PyObject *__pyx_pw_3src_10cy_untyped_13matrix_ops_cy_7simulate_dice_game(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ) {
-  int __pyx_v_n_samples;
+  int __pyx_v_n_rounds;
   #if !CYTHON_METH_FASTCALL
   CYTHON_UNUSED Py_ssize_t __pyx_nargs;
   #endif
@@ -3300,7 +3297,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("monte_carlo_pi (wrapper)", 0);
+  __Pyx_RefNannySetupContext("simulate_dice_game (wrapper)", 0);
   #if !CYTHON_METH_FASTCALL
   #if CYTHON_ASSUME_SAFE_SIZE
   __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
@@ -3310,7 +3307,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   #endif
   __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
   {
-    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_n_samples,0};
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_n_rounds,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
     if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 39, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
@@ -3323,9 +3320,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "monte_carlo_pi", 0) < (0)) __PYX_ERR(0, 39, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "simulate_dice_game", 0) < (0)) __PYX_ERR(0, 39, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("monte_carlo_pi", 1, 1, 1, i); __PYX_ERR(0, 39, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("simulate_dice_game", 1, 1, 1, i); __PYX_ERR(0, 39, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -3333,22 +3330,22 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
       if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 39, __pyx_L3_error)
     }
-    __pyx_v_n_samples = __Pyx_PyLong_As_int(values[0]); if (unlikely((__pyx_v_n_samples == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 39, __pyx_L3_error)
+    __pyx_v_n_rounds = __Pyx_PyLong_As_int(values[0]); if (unlikely((__pyx_v_n_rounds == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 39, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("monte_carlo_pi", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 39, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("simulate_dice_game", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 39, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("src.cy_untyped.matrix_ops_cy.monte_carlo_pi", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.cy_untyped.matrix_ops_cy.simulate_dice_game", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3src_10cy_untyped_13matrix_ops_cy_6monte_carlo_pi(__pyx_self, __pyx_v_n_samples);
+  __pyx_r = __pyx_pf_3src_10cy_untyped_13matrix_ops_cy_6simulate_dice_game(__pyx_self, __pyx_v_n_rounds);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -3358,12 +3355,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3src_10cy_untyped_13matrix_ops_cy_6monte_carlo_pi(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_n_samples) {
+static PyObject *__pyx_pf_3src_10cy_untyped_13matrix_ops_cy_6simulate_dice_game(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_n_rounds) {
   PyObject *__pyx_v_random = NULL;
-  PyObject *__pyx_v_inside = NULL;
+  PyObject *__pyx_v_wins = NULL;
   CYTHON_UNUSED int __pyx_v__;
-  PyObject *__pyx_v_x = NULL;
-  PyObject *__pyx_v_y = NULL;
+  PyObject *__pyx_v_die1 = NULL;
+  PyObject *__pyx_v_die2 = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3372,145 +3369,124 @@ static PyObject *__pyx_pf_3src_10cy_untyped_13matrix_ops_cy_6monte_carlo_pi(CYTH
   int __pyx_t_4;
   int __pyx_t_5;
   PyObject *__pyx_t_6 = NULL;
-  size_t __pyx_t_7;
-  PyObject *__pyx_t_8 = NULL;
-  int __pyx_t_9;
+  int __pyx_t_7;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("monte_carlo_pi", 0);
+  __Pyx_RefNannySetupContext("simulate_dice_game", 0);
 
-  /* "src/cy_untyped/matrix_ops_cy.pyx":45
+  /* "src/cy_untyped/matrix_ops_cy.pyx":47
  *     Only the interpreter dispatch loop is eliminated.
  *     """
  *     import random             # <<<<<<<<<<<<<<
- *     inside = 0
- *     for _ in range(n_samples):
+ *     wins = 0
+ *     for _ in range(n_rounds):
 */
-  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_random, 0, 0, NULL, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_random, 0, 0, NULL, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 47, __pyx_L1_error)
   __pyx_t_1 = __pyx_t_2;
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_random = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "src/cy_untyped/matrix_ops_cy.pyx":46
+  /* "src/cy_untyped/matrix_ops_cy.pyx":48
  *     """
  *     import random
- *     inside = 0             # <<<<<<<<<<<<<<
- *     for _ in range(n_samples):
- *         x = random.random()
+ *     wins = 0             # <<<<<<<<<<<<<<
+ *     for _ in range(n_rounds):
+ *         die1 = random.randint(1, 6)
 */
   __Pyx_INCREF(__pyx_mstate_global->__pyx_int_0);
-  __pyx_v_inside = __pyx_mstate_global->__pyx_int_0;
+  __pyx_v_wins = __pyx_mstate_global->__pyx_int_0;
 
-  /* "src/cy_untyped/matrix_ops_cy.pyx":47
+  /* "src/cy_untyped/matrix_ops_cy.pyx":49
  *     import random
- *     inside = 0
- *     for _ in range(n_samples):             # <<<<<<<<<<<<<<
- *         x = random.random()
- *         y = random.random()
+ *     wins = 0
+ *     for _ in range(n_rounds):             # <<<<<<<<<<<<<<
+ *         die1 = random.randint(1, 6)
+ *         die2 = random.randint(1, 6)
 */
-  __pyx_t_3 = __pyx_v_n_samples;
+  __pyx_t_3 = __pyx_v_n_rounds;
   __pyx_t_4 = __pyx_t_3;
   for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
     __pyx_v__ = __pyx_t_5;
 
-    /* "src/cy_untyped/matrix_ops_cy.pyx":48
- *     inside = 0
- *     for _ in range(n_samples):
- *         x = random.random()             # <<<<<<<<<<<<<<
- *         y = random.random()
- *         if x * x + y * y < 1.0:
-*/
-    __pyx_t_6 = __pyx_v_random;
-    __Pyx_INCREF(__pyx_t_6);
-    __pyx_t_7 = 0;
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_6, NULL};
-      __pyx_t_1 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_random, __pyx_callargs+__pyx_t_7, (1-__pyx_t_7) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 48, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-    }
-    __Pyx_XDECREF_SET(__pyx_v_x, __pyx_t_1);
-    __pyx_t_1 = 0;
-
-    /* "src/cy_untyped/matrix_ops_cy.pyx":49
- *     for _ in range(n_samples):
- *         x = random.random()
- *         y = random.random()             # <<<<<<<<<<<<<<
- *         if x * x + y * y < 1.0:
- *             inside += 1
-*/
-    __pyx_t_6 = __pyx_v_random;
-    __Pyx_INCREF(__pyx_t_6);
-    __pyx_t_7 = 0;
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_6, NULL};
-      __pyx_t_1 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_random, __pyx_callargs+__pyx_t_7, (1-__pyx_t_7) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 49, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-    }
-    __Pyx_XDECREF_SET(__pyx_v_y, __pyx_t_1);
-    __pyx_t_1 = 0;
-
     /* "src/cy_untyped/matrix_ops_cy.pyx":50
- *         x = random.random()
- *         y = random.random()
- *         if x * x + y * y < 1.0:             # <<<<<<<<<<<<<<
- *             inside += 1
- *     return 4.0 * inside / n_samples
+ *     wins = 0
+ *     for _ in range(n_rounds):
+ *         die1 = random.randint(1, 6)             # <<<<<<<<<<<<<<
+ *         die2 = random.randint(1, 6)
+ *         if die1 + die2 >= 7:
 */
-    __pyx_t_1 = PyNumber_Multiply(__pyx_v_x, __pyx_v_x); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 50, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_random, __pyx_mstate_global->__pyx_n_u_randint); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 50, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_6 = PyNumber_Multiply(__pyx_v_y, __pyx_v_y); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 50, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_mstate_global->__pyx_tuple[0], NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 50, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_8 = PyNumber_Add(__pyx_t_1, __pyx_t_6); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 50, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_6 = PyObject_RichCompare(__pyx_t_8, __pyx_mstate_global->__pyx_float_1_0, Py_LT); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 50, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely((__pyx_t_9 < 0))) __PYX_ERR(0, 50, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (__pyx_t_9) {
+    __Pyx_XDECREF_SET(__pyx_v_die1, __pyx_t_6);
+    __pyx_t_6 = 0;
 
-      /* "src/cy_untyped/matrix_ops_cy.pyx":51
- *         y = random.random()
- *         if x * x + y * y < 1.0:
- *             inside += 1             # <<<<<<<<<<<<<<
- *     return 4.0 * inside / n_samples
+    /* "src/cy_untyped/matrix_ops_cy.pyx":51
+ *     for _ in range(n_rounds):
+ *         die1 = random.randint(1, 6)
+ *         die2 = random.randint(1, 6)             # <<<<<<<<<<<<<<
+ *         if die1 + die2 >= 7:
+ *             wins += 1
 */
-      __pyx_t_6 = __Pyx_PyLong_AddObjC(__pyx_v_inside, __pyx_mstate_global->__pyx_int_1, 1, 1, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 51, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_random, __pyx_mstate_global->__pyx_n_u_randint); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 51, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_mstate_global->__pyx_tuple[0], NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 51, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    __Pyx_XDECREF_SET(__pyx_v_die2, __pyx_t_1);
+    __pyx_t_1 = 0;
+
+    /* "src/cy_untyped/matrix_ops_cy.pyx":52
+ *         die1 = random.randint(1, 6)
+ *         die2 = random.randint(1, 6)
+ *         if die1 + die2 >= 7:             # <<<<<<<<<<<<<<
+ *             wins += 1
+ *     return wins / n_rounds
+*/
+    __pyx_t_1 = PyNumber_Add(__pyx_v_die1, __pyx_v_die2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_6 = PyObject_RichCompare(__pyx_t_1, __pyx_mstate_global->__pyx_int_7, Py_GE); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 52, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 52, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    if (__pyx_t_7) {
+
+      /* "src/cy_untyped/matrix_ops_cy.pyx":53
+ *         die2 = random.randint(1, 6)
+ *         if die1 + die2 >= 7:
+ *             wins += 1             # <<<<<<<<<<<<<<
+ *     return wins / n_rounds
+*/
+      __pyx_t_6 = __Pyx_PyLong_AddObjC(__pyx_v_wins, __pyx_mstate_global->__pyx_int_1, 1, 1, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 53, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __Pyx_DECREF_SET(__pyx_v_inside, __pyx_t_6);
+      __Pyx_DECREF_SET(__pyx_v_wins, __pyx_t_6);
       __pyx_t_6 = 0;
 
-      /* "src/cy_untyped/matrix_ops_cy.pyx":50
- *         x = random.random()
- *         y = random.random()
- *         if x * x + y * y < 1.0:             # <<<<<<<<<<<<<<
- *             inside += 1
- *     return 4.0 * inside / n_samples
+      /* "src/cy_untyped/matrix_ops_cy.pyx":52
+ *         die1 = random.randint(1, 6)
+ *         die2 = random.randint(1, 6)
+ *         if die1 + die2 >= 7:             # <<<<<<<<<<<<<<
+ *             wins += 1
+ *     return wins / n_rounds
 */
     }
   }
 
-  /* "src/cy_untyped/matrix_ops_cy.pyx":52
- *         if x * x + y * y < 1.0:
- *             inside += 1
- *     return 4.0 * inside / n_samples             # <<<<<<<<<<<<<<
+  /* "src/cy_untyped/matrix_ops_cy.pyx":54
+ *         if die1 + die2 >= 7:
+ *             wins += 1
+ *     return wins / n_rounds             # <<<<<<<<<<<<<<
 */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_6 = PyNumber_Multiply(__pyx_mstate_global->__pyx_float_4_0, __pyx_v_inside); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 52, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyLong_From_int(__pyx_v_n_rounds); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_8 = __Pyx_PyLong_From_int(__pyx_v_n_samples); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 52, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_8);
-  __pyx_t_1 = __Pyx_PyNumber_Divide(__pyx_t_6, __pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyNumber_Divide(__pyx_v_wins, __pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
@@ -3518,23 +3494,22 @@ static PyObject *__pyx_pf_3src_10cy_untyped_13matrix_ops_cy_6monte_carlo_pi(CYTH
   /* "src/cy_untyped/matrix_ops_cy.pyx":39
  * 
  * 
- * def monte_carlo_pi(int n_samples):             # <<<<<<<<<<<<<<
+ * def simulate_dice_game(int n_rounds):             # <<<<<<<<<<<<<<
  *     """
- *     Monte Carlo pi estimation  untyped Cython.
+ *     Monte Carlo dice game  untyped Cython.
 */
 
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_XDECREF(__pyx_t_8);
-  __Pyx_AddTraceback("src.cy_untyped.matrix_ops_cy.monte_carlo_pi", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.cy_untyped.matrix_ops_cy.simulate_dice_game", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_random);
-  __Pyx_XDECREF(__pyx_v_inside);
-  __Pyx_XDECREF(__pyx_v_x);
-  __Pyx_XDECREF(__pyx_v_y);
+  __Pyx_XDECREF(__pyx_v_wins);
+  __Pyx_XDECREF(__pyx_v_die1);
+  __Pyx_XDECREF(__pyx_v_die2);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
@@ -3936,16 +3911,16 @@ __Pyx_RefNannySetupContext("PyInit_matrix_ops_cy", 0);
   /* "src/cy_untyped/matrix_ops_cy.pyx":39
  * 
  * 
- * def monte_carlo_pi(int n_samples):             # <<<<<<<<<<<<<<
+ * def simulate_dice_game(int n_rounds):             # <<<<<<<<<<<<<<
  *     """
- *     Monte Carlo pi estimation  untyped Cython.
+ *     Monte Carlo dice game  untyped Cython.
 */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_3src_10cy_untyped_13matrix_ops_cy_7monte_carlo_pi, 0, __pyx_mstate_global->__pyx_n_u_monte_carlo_pi, NULL, __pyx_mstate_global->__pyx_n_u_src_cy_untyped_matrix_ops_cy, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 39, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_3src_10cy_untyped_13matrix_ops_cy_7simulate_dice_game, 0, __pyx_mstate_global->__pyx_n_u_simulate_dice_game, NULL, __pyx_mstate_global->__pyx_n_u_src_cy_untyped_matrix_ops_cy, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 39, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_2);
   #endif
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_monte_carlo_pi, __pyx_t_2) < (0)) __PYX_ERR(0, 39, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_simulate_dice_game, __pyx_t_2) < (0)) __PYX_ERR(0, 39, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "src/cy_untyped/matrix_ops_cy.pyx":1
@@ -4010,39 +3985,72 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
   __Pyx_RefNannyDeclarations
   CYTHON_UNUSED_VAR(__pyx_mstate);
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
+
+  /* "src/cy_untyped/matrix_ops_cy.pyx":50
+ *     wins = 0
+ *     for _ in range(n_rounds):
+ *         die1 = random.randint(1, 6)             # <<<<<<<<<<<<<<
+ *         die2 = random.randint(1, 6)
+ *         if die1 + die2 >= 7:
+*/
+  __pyx_mstate_global->__pyx_tuple[0] = PyTuple_Pack(2, __pyx_mstate_global->__pyx_int_1, __pyx_mstate_global->__pyx_int_6); if (unlikely(!__pyx_mstate_global->__pyx_tuple[0])) __PYX_ERR(0, 50, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[0]);
+  __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[0]);
+  #if CYTHON_IMMORTAL_CONSTANTS
+  {
+    PyObject **table = __pyx_mstate->__pyx_tuple;
+    for (Py_ssize_t i=0; i<1; ++i) {
+      #if CYTHON_COMPILING_IN_CPYTHON_FREETHREADING
+      #if PY_VERSION_HEX < 0x030E0000
+      if (_Py_IsOwnedByCurrentThread(table[i]) && Py_REFCNT(table[i]) == 1)
+      #else
+      if (PyUnstable_Object_IsUniquelyReferenced(table[i]))
+      #endif
+      {
+        Py_SET_REFCNT(table[i], _Py_IMMORTAL_REFCNT_LOCAL);
+      }
+      #else
+      Py_SET_REFCNT(table[i], _Py_IMMORTAL_INITIAL_REFCNT);
+      #endif
+    }
+  }
+  #endif
   __Pyx_RefNannyFinishContext();
   return 0;
+  __pyx_L1_error:;
+  __Pyx_RefNannyFinishContext();
+  return -1;
 }
 /* #### Code section: init_constants ### */
 
 static int __Pyx_InitConstants(__pyx_mstatetype *__pyx_mstate) {
   CYTHON_UNUSED_VAR(__pyx_mstate);
   {
-    const struct { const unsigned int length: 7; } index[] = {{1},{32},{1},{1},{1},{20},{1},{18},{18},{8},{1},{6},{13},{5},{1},{1},{1},{8},{6},{10},{10},{14},{1},{9},{8},{1},{3},{12},{6},{1},{12},{10},{28},{8},{6},{1},{1},{5},{23},{125},{95},{80}};
-    #if (CYTHON_COMPRESS_STRINGS) == 2 /* compression: bz2 (445 bytes) */
-const char* const cstring = "BZh91AY&SY\246\315\332\263\000\000?\377\363\376Ns\200:\201\274\000\277\001r\200\277?\377p@@@@@\000\000@@\000@\0000\001{(\332\303SJ=CL\023\320 4\001\240\000\000\006\232i\265\006\246\324\3211\021\2051\224\320\000\000\006\232\001\246\2154\310$\211MO)\200\215\242i\200\232\000h\321\240\323!\246\031\022M\244\306\321\330\230\231\023\233\330\023\242'E4*\255\302\005&T\002\221\023A\204g\200!\020\330\320\025\025\030\201P\021\233\313.\242o\200&{&\r$\355\352,pF'C\372d\3402\261\3441\310t\226\310\260\243b\376\314\327\363\375\325\363\2454!J\250\243:\271T\034dE\021f\n\213&\220y\265\275I\367\306\251\307^8\302\254\241(\305w,\310J\032\nN\334\237\244\034\261\022\026\302lR\303\177\372\2669\320\262\341\241\252\355pkm\330\037\225\014\031\324\330\221\200\275e.\216&Eu^\203L\357'v\"\213ns\024%\267\251\246\304|R}\310\271\202*\013\355\304\225\304V+dg\n\367\225\024\233\261\240\251\270AeV@c\023\006\317]\002S\310:\212q\240.\275\307\032@Y\205\337\013\034\214\372\002\217\003h\267D4\036<\001\2032\323r\221\236\301-\013\022\177qN\376B>O\201\2311\001d\017\0239\234m\216\241\306.\375\331\017Q\341\027IA\036cL8\233\322\243JNj\205\363\254@;&v\346\005\"K\356\224\270?)\205Yf\260\224rk\341\337\001\370\001\230\\\324S\300\257\010\222\231\036\320\203\374]\311\024\341BB\2337j\314";
-    PyObject *data = __Pyx_DecompressString(cstring, 445, 2);
+    const struct { const unsigned int length: 7; } index[] = {{1},{32},{1},{1},{1},{20},{1},{18},{18},{4},{4},{8},{1},{13},{5},{1},{1},{1},{8},{6},{10},{10},{1},{8},{8},{1},{3},{12},{7},{6},{1},{12},{10},{18},{28},{8},{6},{4},{5},{23},{125},{95},{76}};
+    #if (CYTHON_COMPRESS_STRINGS) == 2 /* compression: bz2 (448 bytes) */
+const char* const cstring = "BZh91AY&SYNF\323\324\000\000?\177\363\376N\366\000:\001\272\000\276\001r\300\277\277\377\360@@@@@\000\000@@\000@\0000\001{-\265l5\n4\323\324=4\217Q\241\220\000\000\000h\3204\323\032\203S\322\t\225? M'\242h\036\246\200h\000\000\323A\243\322\t\"M\nz\030\246\217H\r\000\000\032\000h\003\323H^\264\270\264v\030\272\344g?X\023\242GE\364\225.P\311\312\323\037\320\201\010\274\025.K\0001L(s\367w\336\211\343H\001\345\352{\n\306\335\350\247\002\247'*f\213G\202\234\201M\200^\224b\230H\\\035\321\232\235\0375\351\300>\312\032\245,\355Sg$\350p\225\245\031P\311\247\0377\313\340\273<\313\362b[\246\n\254\014CV\346\244\345\0326\273*\2276\014\r\320\340\342\200\256w'\306\372\t}\266\202\224C\274\311^\020\2655\205\231\231\216\270>(TT4\020\334,\246\003S\252l2*\014\276p\206$\342x\226M\226\200\314r\305Q\302[\003\033\264\007\212\221\207\032\314:\261+4\202\232\010\306\005O\255\260\305pk\006Xa1\033\370)\274&\230=\253\372\"\273#\034\270(\230M<\254\013MdV\024\032\222\212\313n\245\340\213\022\341E\245*\252\3632\215\206)!\272\327>A\036\207\230\314\231@Y\016\243)\225\0178\275N\221\307\360-1\004`\276d!_$2\304\236\240\304I`\304\004\231\367!\026\242\320\330X\225i\036\020\355\026\343\006W\366\352\313p\016\264$\301\213\235\273\316s\2011Yn\006 \377\027rE8P\220NF\323\324";
+    PyObject *data = __Pyx_DecompressString(cstring, 448, 2);
     if (unlikely(!data)) __PYX_ERR(0, 1, __pyx_L1_error)
     const char* const bytes = __Pyx_PyBytes_AsString(data);
     #if !CYTHON_ASSUME_SAFE_MACROS
     if (likely(bytes)); else { Py_DECREF(data); __PYX_ERR(0, 1, __pyx_L1_error) }
     #endif
-    #elif (CYTHON_COMPRESS_STRINGS) != 0 /* compression: zlib (392 bytes) */
-const char* const cstring = "x\332\205OMO\0331\020e!HH,\022\211D9\003\252z\013\n\355\035\205\002GD\"!\216#\307\353H.\273\366\306\037h\227S\216>\316\321\307\375Y{\344'\360\023\230%AM+U=x\374<o\374\336\274Kk\3709\257\301+W\227\";/\2303\262\002]Z\340\365\260\254\253\361\325O\200\373\272\242s-\271\203;Q\271\251\230\003\263\265\342R\017\2716\332;\251\204\3459U\220\n\234a\\\314\030\177\002\230{\305\001\244TVf\304\221\350\347\270t\242\260\277\236\n\200\202\321\037\252\256\360\371\332\236e\031ut\346s\321\335\312\t\340\314\344\032J\251\024XV\224\271\260\000\212\025\304\227\245.\001\026\236\345\253\267a*\323\005\321V\270\365\010\241L\314\231\317\035\305\035\376\216;\374#.\200\023\326\001<\263\334\013[\325/\302h\273L\332\336~\030\205qx\304+\314\342\327\350\233q3Y&\257\275\275\260\323\021\355'\010\223\300\332\315\356.u8\366W\360\001Op\324\356\245\341\006\217\220\341\242M\0171\351\312.>\304\2238j\017\217pB\204\211\375x\026\247q\321$\315\240\0315\3436= \235\031&\335\277\217e\272\235\376e\376\037\317\r)\\\304m2\376\036g\344\324oN\273Xk\371\267t+=h{4\374\227\316-~\213\375\r\260\037.\3024\030\034\340\005Ni\365\001\345H\277\254\326\374A\375\343\316\342\035=\353\352G";
-    PyObject *data = __Pyx_DecompressString(cstring, 392, 1);
+    #elif (CYTHON_COMPRESS_STRINGS) != 0 /* compression: zlib (395 bytes) */
+const char* const cstring = "x\332\205O\301N\3430\020\335@+!\221\212\026-\037P\020\327\242\354j\317\253\300rE\024\t\301m\344\332.2M\2344\266\331\206\023G\037\347\350c>+G>\201O`\002E\300J+\016\036\277y3\357\315\314oS\361#^\203\323\266.\2458\312\231\255\324\n\212\322\000\257'e\275J\217O\000\316\353\025\275?\212[8\223+{!\347\300L\255\271*&\274\250\ng\225\226\206g\024Ai\260\025\343r\306\370B(\231\320\373\0010w\232\003(Pd\373&PV\346\346v\221\003\344\214T\024m\356\262\365\002L\010b\n\3412\t\2405\220F\013C\220\345D\224eQ\002,\035\313^\363\212i\241\264\355\276\"\247.#\355\272\223\220\220s\3462k\024\2713+A(.\341\206\252t\372\344\375\364\311\247\323\001\2544\026\340\216eN\232\277J\233{Y\025\346!j{\333>\361\251\277\302c\024\3410\270&m\246\017\321co\313ov\205\366\r\370\251g\355G\266O\014\307\321+\274\3041&\355V\354Oq\017\031.\333x\210Q\027\372x\031\306!i\207{8\245B\025F\341 \\\204e\0235\273M\322\244m< \237\031F\235\356e\231n\247\377\r\377b\346\007+\\\206\r\032\3743\314h\322\250\331\357\316Z\333?\r\277\305\203\027\374\311g\307\337\341u\230\006\336\214\376I\266\375/\334\300C4a\334\306\3371\355\264\0353~\006o\037\356\245";
+    PyObject *data = __Pyx_DecompressString(cstring, 395, 1);
     if (unlikely(!data)) __PYX_ERR(0, 1, __pyx_L1_error)
     const char* const bytes = __Pyx_PyBytes_AsString(data);
     #if !CYTHON_ASSUME_SAFE_MACROS
     if (likely(bytes)); else { Py_DECREF(data); __PYX_ERR(0, 1, __pyx_L1_error) }
     #endif
-    #else /* compression: none (612 bytes) */
-const char* const bytes = "?src/cy_untyped/matrix_ops_cy.pyxABC__Pyx_PyDict_NextRef_asyncio.coroutinescline_in_traceback__func__iinside_is_coroutineitemsjkm__main__matmulmatrix_add__module__monte_carlo_pinn_samples__name__ppop__qualname__randoms__set_name__setdefaultsrc.cy_untyped.matrix_ops_cy__test__valuesxyzeros\200\001\330\004\013\2101\210A\210W\220B\220d\230%\230u\240A\240Q\200\001\340\004\010\210\003\2101\210A\330\004\010\210\003\2101\210A\210Q\210a\330\004\010\210\003\2101\210A\330\004\010\210\005\210Q\210c\220\021\330\004\010\210\005\210U\220!\2201\330\010\014\210E\220\025\220a\220q\330\014\020\220\001\330\014\020\220\005\220U\230!\2301\330\020\025\220Q\220a\220r\230\021\230#\230R\230q\240\001\240\022\2401\240A\330\014\r\210Q\210b\220\001\220\025\220a\330\004\013\2101\200\001\330\004\010\210\003\2101\210A\330\004\010\210\003\2101\210A\210Q\210a\330\004\010\210\005\210Q\210c\220\021\330\004\010\210\005\210U\220!\2201\330\010\014\210E\220\025\220a\220q\330\014\r\210Q\210b\220\001\220\025\220a\220q\230\002\230!\2303\230b\240\001\240\021\240\"\240A\240Q\330\004\013\2101\200\001\360\014\000\014\r\330\004\r\210Q\330\004\010\210\005\210U\220!\2201\330\010\014\210F\220'\230\021\330\010\014\210F\220'\230\021\330\010\013\2102\210R\210r\220\022\2202\220R\220r\230\022\2301\330\014\026\220a\330\004\013\2104\210r\220\027\230\002\230!";
+    #else /* compression: none (622 bytes) */
+const char* const bytes = "?src/cy_untyped/matrix_ops_cy.pyxABC__Pyx_PyDict_NextRef_asyncio.coroutinescline_in_tracebackdie1die2__func__i_is_coroutineitemsjkm__main__matmulmatrix_add__module__nn_rounds__name__ppop__qualname__randintrandoms__set_name__setdefaultsimulate_dice_gamesrc.cy_untyped.matrix_ops_cy__test__valueswinszeros\200\001\330\004\013\2101\210A\210W\220B\220d\230%\230u\240A\240Q\200\001\340\004\010\210\003\2101\210A\330\004\010\210\003\2101\210A\210Q\210a\330\004\010\210\003\2101\210A\330\004\010\210\005\210Q\210c\220\021\330\004\010\210\005\210U\220!\2201\330\010\014\210E\220\025\220a\220q\330\014\020\220\001\330\014\020\220\005\220U\230!\2301\330\020\025\220Q\220a\220r\230\021\230#\230R\230q\240\001\240\022\2401\240A\330\014\r\210Q\210b\220\001\220\025\220a\330\004\013\2101\200\001\330\004\010\210\003\2101\210A\330\004\010\210\003\2101\210A\210Q\210a\330\004\010\210\005\210Q\210c\220\021\330\004\010\210\005\210U\220!\2201\330\010\014\210E\220\025\220a\220q\330\014\r\210Q\210b\220\001\220\025\220a\220q\230\002\230!\2303\230b\240\001\240\021\240\"\240A\240Q\330\004\013\2101\200\001\360\020\000\014\r\330\004\013\2101\330\004\010\210\005\210U\220!\2201\330\010\017\210v\220X\230Q\230c\240\021\330\010\017\210v\220X\230Q\230c\240\021\330\010\013\2105\220\002\220%\220s\230!\330\014\024\220A\330\004\013\2105\220\002\220!";
     PyObject *data = NULL;
     CYTHON_UNUSED_VAR(__Pyx_DecompressString);
     #endif
     PyObject **stringtab = __pyx_mstate->__pyx_string_tab;
     Py_ssize_t pos = 0;
-    for (int i = 0; i < 38; i++) {
+    for (int i = 0; i < 39; i++) {
       Py_ssize_t bytes_length = index[i].length;
       PyObject *string = PyUnicode_DecodeUTF8(bytes + pos, bytes_length, NULL);
       if (likely(string) && i >= 2) PyUnicode_InternInPlace(&string);
@@ -4053,7 +4061,7 @@ const char* const bytes = "?src/cy_untyped/matrix_ops_cy.pyxABC__Pyx_PyDict_Next
       stringtab[i] = string;
       pos += bytes_length;
     }
-    for (int i = 38; i < 42; i++) {
+    for (int i = 39; i < 43; i++) {
       Py_ssize_t bytes_length = index[i].length;
       PyObject *string = PyBytes_FromStringAndSize(bytes + pos, bytes_length);
       stringtab[i] = string;
@@ -4064,14 +4072,14 @@ const char* const bytes = "?src/cy_untyped/matrix_ops_cy.pyxABC__Pyx_PyDict_Next
       }
     }
     Py_XDECREF(data);
-    for (Py_ssize_t i = 0; i < 42; i++) {
+    for (Py_ssize_t i = 0; i < 43; i++) {
       if (unlikely(PyObject_Hash(stringtab[i]) == -1)) {
         __PYX_ERR(0, 1, __pyx_L1_error)
       }
     }
     #if CYTHON_IMMORTAL_CONSTANTS
     {
-      PyObject **table = stringtab + 38;
+      PyObject **table = stringtab + 39;
       for (Py_ssize_t i=0; i<4; ++i) {
         #if CYTHON_COMPILING_IN_CPYTHON_FREETHREADING
         #if PY_VERSION_HEX < 0x030E0000
@@ -4091,16 +4099,16 @@ const char* const bytes = "?src/cy_untyped/matrix_ops_cy.pyxABC__Pyx_PyDict_Next
   }
   {
     PyObject **numbertab = __pyx_mstate->__pyx_number_tab;
-    double const c_constants[] = {0.0,1.0,4.0};
-    for (int i = 0; i < 3; i++) {
+    double const c_constants[] = {0.0};
+    for (int i = 0; i < 1; i++) {
       numbertab[i] = PyFloat_FromDouble(c_constants[i]);
       if (unlikely(!numbertab[i])) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   {
-    PyObject **numbertab = __pyx_mstate->__pyx_number_tab + 3;
-    int8_t const cint_constants_1[] = {0,1};
-    for (int i = 0; i < 2; i++) {
+    PyObject **numbertab = __pyx_mstate->__pyx_number_tab + 1;
+    int8_t const cint_constants_1[] = {0,1,6,7};
+    for (int i = 0; i < 4; i++) {
       numbertab[i] = PyLong_FromLong(cint_constants_1[i - 0]);
       if (unlikely(!numbertab[i])) __PYX_ERR(0, 1, __pyx_L1_error)
     }
@@ -4168,8 +4176,8 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 39};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_n_samples, __pyx_mstate->__pyx_n_u_random, __pyx_mstate->__pyx_n_u_inside, __pyx_mstate->__pyx_n_u__2, __pyx_mstate->__pyx_n_u_x, __pyx_mstate->__pyx_n_u_y};
-    __pyx_mstate_global->__pyx_codeobj_tab[3] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cy_untyped_matrix_ops_cy_pyx, __pyx_mstate->__pyx_n_u_monte_carlo_pi, __pyx_mstate->__pyx_kp_b_iso88591_Q_U_1_F_F_2Rr_2Rr_1_a_4r, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[3])) goto bad;
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_n_rounds, __pyx_mstate->__pyx_n_u_random, __pyx_mstate->__pyx_n_u_wins, __pyx_mstate->__pyx_n_u__2, __pyx_mstate->__pyx_n_u_die1, __pyx_mstate->__pyx_n_u_die2};
+    __pyx_mstate_global->__pyx_codeobj_tab[3] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cy_untyped_matrix_ops_cy_pyx, __pyx_mstate->__pyx_n_u_simulate_dice_game, __pyx_mstate->__pyx_kp_b_iso88591_1_U_1_vXQc_vXQc_5_s_A_5, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[3])) goto bad;
   }
   Py_DECREF(tuple_dedup_map);
   return 0;
@@ -5791,19 +5799,6 @@ bad:
 static PyObject *__Pyx_Import(PyObject *name, PyObject *const *imported_names, Py_ssize_t len_imported_names, PyObject *qualname, int level) {
     return __Pyx__Import(name, imported_names, len_imported_names, qualname, __pyx_mstate_global->__pyx_d, level);
 }
-
-/* PyObjectFastCallMethod */
-#if !CYTHON_VECTORCALL || PY_VERSION_HEX < 0x03090000
-static PyObject *__Pyx_PyObject_FastCallMethod(PyObject *name, PyObject *const *args, size_t nargsf) {
-    PyObject *result;
-    PyObject *attr = PyObject_GetAttr(args[0], name);
-    if (unlikely(!attr))
-        return NULL;
-    result = __Pyx_PyObject_FastCall(attr, args+1, nargsf - 1);
-    Py_DECREF(attr);
-    return result;
-}
-#endif
 
 /* PyLongBinop */
 #if !CYTHON_COMPILING_IN_PYPY

@@ -3320,7 +3320,7 @@ static int __pyx_memoryview_thread_locks_used;
 static PyThread_type_lock __pyx_memoryview_thread_locks[8];
 static PyArrayObject *__pyx_f_3src_8cy_typed_16matrix_ops_typed_matmul(__Pyx_memviewslice, __Pyx_memviewslice, int __pyx_skip_dispatch); /*proto*/
 static PyArrayObject *__pyx_f_3src_8cy_typed_16matrix_ops_typed_matrix_add(__Pyx_memviewslice, __Pyx_memviewslice, int __pyx_skip_dispatch); /*proto*/
-static double __pyx_f_3src_8cy_typed_16matrix_ops_typed_monte_carlo_pi(int, int __pyx_skip_dispatch); /*proto*/
+static double __pyx_f_3src_8cy_typed_16matrix_ops_typed_simulate_dice_game(int, int __pyx_skip_dispatch); /*proto*/
 static int __pyx_array_allocate_buffer(struct __pyx_array_obj *); /*proto*/
 static struct __pyx_array_obj *__pyx_array_new(PyObject *, Py_ssize_t, char *, char const *, char *); /*proto*/
 static PyObject *__pyx_memoryview_new(PyObject *, int, int, __Pyx_TypeInfo const *); /*proto*/
@@ -3418,7 +3418,7 @@ static PyObject *__pyx_pf___pyx_memoryviewslice_2__setstate_cython__(CYTHON_UNUS
 static PyObject *__pyx_pf_15View_dot_MemoryView___pyx_unpickle_Enum(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_pf_3src_8cy_typed_16matrix_ops_typed_matmul(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_A, __Pyx_memviewslice __pyx_v_B); /* proto */
 static PyObject *__pyx_pf_3src_8cy_typed_16matrix_ops_typed_2matrix_add(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_A, __Pyx_memviewslice __pyx_v_B); /* proto */
-static PyObject *__pyx_pf_3src_8cy_typed_16matrix_ops_typed_4monte_carlo_pi(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_n_samples); /* proto */
+static PyObject *__pyx_pf_3src_8cy_typed_16matrix_ops_typed_4simulate_dice_game(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_n_rounds); /* proto */
 static PyObject *__pyx_tp_new_array(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_Enum(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_memoryview(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
@@ -3604,32 +3604,32 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_memview __pyx_string_tab[86]
 #define __pyx_n_u_mode __pyx_string_tab[87]
 #define __pyx_n_u_module __pyx_string_tab[88]
-#define __pyx_n_u_monte_carlo_pi __pyx_string_tab[89]
-#define __pyx_n_u_n_samples __pyx_string_tab[90]
-#define __pyx_n_u_name __pyx_string_tab[91]
-#define __pyx_n_u_name_2 __pyx_string_tab[92]
-#define __pyx_n_u_ndim __pyx_string_tab[93]
-#define __pyx_n_u_new __pyx_string_tab[94]
-#define __pyx_n_u_np __pyx_string_tab[95]
-#define __pyx_n_u_numpy __pyx_string_tab[96]
-#define __pyx_n_u_obj __pyx_string_tab[97]
-#define __pyx_n_u_pack __pyx_string_tab[98]
-#define __pyx_n_u_pop __pyx_string_tab[99]
-#define __pyx_n_u_pyx_checksum __pyx_string_tab[100]
-#define __pyx_n_u_pyx_state __pyx_string_tab[101]
-#define __pyx_n_u_pyx_type __pyx_string_tab[102]
-#define __pyx_n_u_pyx_unpickle_Enum __pyx_string_tab[103]
-#define __pyx_n_u_pyx_vtable __pyx_string_tab[104]
-#define __pyx_n_u_qualname __pyx_string_tab[105]
-#define __pyx_n_u_reduce __pyx_string_tab[106]
-#define __pyx_n_u_reduce_cython __pyx_string_tab[107]
-#define __pyx_n_u_reduce_ex __pyx_string_tab[108]
-#define __pyx_n_u_register __pyx_string_tab[109]
-#define __pyx_n_u_set_name __pyx_string_tab[110]
-#define __pyx_n_u_setdefault __pyx_string_tab[111]
-#define __pyx_n_u_setstate __pyx_string_tab[112]
-#define __pyx_n_u_setstate_cython __pyx_string_tab[113]
-#define __pyx_n_u_shape __pyx_string_tab[114]
+#define __pyx_n_u_n_rounds __pyx_string_tab[89]
+#define __pyx_n_u_name __pyx_string_tab[90]
+#define __pyx_n_u_name_2 __pyx_string_tab[91]
+#define __pyx_n_u_ndim __pyx_string_tab[92]
+#define __pyx_n_u_new __pyx_string_tab[93]
+#define __pyx_n_u_np __pyx_string_tab[94]
+#define __pyx_n_u_numpy __pyx_string_tab[95]
+#define __pyx_n_u_obj __pyx_string_tab[96]
+#define __pyx_n_u_pack __pyx_string_tab[97]
+#define __pyx_n_u_pop __pyx_string_tab[98]
+#define __pyx_n_u_pyx_checksum __pyx_string_tab[99]
+#define __pyx_n_u_pyx_state __pyx_string_tab[100]
+#define __pyx_n_u_pyx_type __pyx_string_tab[101]
+#define __pyx_n_u_pyx_unpickle_Enum __pyx_string_tab[102]
+#define __pyx_n_u_pyx_vtable __pyx_string_tab[103]
+#define __pyx_n_u_qualname __pyx_string_tab[104]
+#define __pyx_n_u_reduce __pyx_string_tab[105]
+#define __pyx_n_u_reduce_cython __pyx_string_tab[106]
+#define __pyx_n_u_reduce_ex __pyx_string_tab[107]
+#define __pyx_n_u_register __pyx_string_tab[108]
+#define __pyx_n_u_set_name __pyx_string_tab[109]
+#define __pyx_n_u_setdefault __pyx_string_tab[110]
+#define __pyx_n_u_setstate __pyx_string_tab[111]
+#define __pyx_n_u_setstate_cython __pyx_string_tab[112]
+#define __pyx_n_u_shape __pyx_string_tab[113]
+#define __pyx_n_u_simulate_dice_game __pyx_string_tab[114]
 #define __pyx_n_u_size __pyx_string_tab[115]
 #define __pyx_n_u_src_cy_typed_matrix_ops_typed __pyx_string_tab[116]
 #define __pyx_n_u_start __pyx_string_tab[117]
@@ -3642,9 +3642,9 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_values __pyx_string_tab[124]
 #define __pyx_n_u_x __pyx_string_tab[125]
 #define __pyx_n_u_zeros __pyx_string_tab[126]
-#define __pyx_kp_b_iso88591_1_a_4r_E_aq_Cr_Cr_r_2Rr_2Rq_4r __pyx_string_tab[127]
-#define __pyx_kp_b_iso88591_b_b_4vQ_E_aq_U_1_A_E_aq_3c_1AS __pyx_string_tab[128]
-#define __pyx_kp_b_iso88591_b_b_4vQ_E_aq_U_1_U_1Cs_AQc_1 __pyx_string_tab[129]
+#define __pyx_kp_b_iso88591_b_b_4vQ_E_aq_U_1_A_E_aq_3c_1AS __pyx_string_tab[127]
+#define __pyx_kp_b_iso88591_b_b_4vQ_E_aq_U_1_U_1Cs_AQc_1 __pyx_string_tab[128]
+#define __pyx_kp_b_iso88591_q_A_E_aq_4s_Bb_4s_Bb_uBe3a_85 __pyx_string_tab[129]
 #define __pyx_n_b_O __pyx_string_tab[130]
 #define __pyx_int_0 __pyx_number_tab[0]
 #define __pyx_int_neg_1 __pyx_number_tab[1]
@@ -19580,52 +19580,42 @@ static PyObject *__pyx_pf_3src_8cy_typed_16matrix_ops_typed_2matrix_add(CYTHON_U
 }
 
 /* "src/cy_typed/matrix_ops_typed.pyx":86
- * # monte_carlo_pi  typed version
+ * # simulate_dice_game  typed version
  * # ---------------------------------------------------------------------------
- * cpdef double monte_carlo_pi(int n_samples):             # <<<<<<<<<<<<<<
+ * cpdef double simulate_dice_game(int n_rounds):             # <<<<<<<<<<<<<<
  *     """
- *     Monte Carlo pi estimation  fully typed Cython.
+ *     Monte Carlo dice game  fully typed Cython.
 */
 
-static PyObject *__pyx_pw_3src_8cy_typed_16matrix_ops_typed_5monte_carlo_pi(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_3src_8cy_typed_16matrix_ops_typed_5simulate_dice_game(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static double __pyx_f_3src_8cy_typed_16matrix_ops_typed_monte_carlo_pi(int __pyx_v_n_samples, CYTHON_UNUSED int __pyx_skip_dispatch) {
+static double __pyx_f_3src_8cy_typed_16matrix_ops_typed_simulate_dice_game(int __pyx_v_n_rounds, CYTHON_UNUSED int __pyx_skip_dispatch) {
   CYTHON_UNUSED int __pyx_v_i;
-  int __pyx_v_inside;
-  double __pyx_v_x;
-  double __pyx_v_y;
-  double __pyx_v_inv_rand;
+  int __pyx_v_wins;
+  int __pyx_v_die1;
+  int __pyx_v_die2;
   double __pyx_r;
   int __pyx_t_1;
   int __pyx_t_2;
   int __pyx_t_3;
   int __pyx_t_4;
 
-  /* "src/cy_typed/matrix_ops_typed.pyx":99
+  /* "src/cy_typed/matrix_ops_typed.pyx":103
  *     """
  *     cdef int i
- *     cdef int inside = 0             # <<<<<<<<<<<<<<
- *     cdef double x, y
- *     cdef double inv_rand = 1.0 / RAND_MAX
-*/
-  __pyx_v_inside = 0;
-
-  /* "src/cy_typed/matrix_ops_typed.pyx":101
- *     cdef int inside = 0
- *     cdef double x, y
- *     cdef double inv_rand = 1.0 / RAND_MAX             # <<<<<<<<<<<<<<
+ *     cdef int wins = 0             # <<<<<<<<<<<<<<
+ *     cdef int die1, die2
  * 
- *     srand(42)  # fixed seed for reproducibility
 */
-  __pyx_v_inv_rand = (1.0 / ((double)RAND_MAX));
+  __pyx_v_wins = 0;
 
-  /* "src/cy_typed/matrix_ops_typed.pyx":103
- *     cdef double inv_rand = 1.0 / RAND_MAX
+  /* "src/cy_typed/matrix_ops_typed.pyx":106
+ *     cdef int die1, die2
  * 
  *     srand(42)  # fixed seed for reproducibility             # <<<<<<<<<<<<<<
  * 
@@ -19633,12 +19623,12 @@ static double __pyx_f_3src_8cy_typed_16matrix_ops_typed_monte_carlo_pi(int __pyx
 */
   srand(42);
 
-  /* "src/cy_typed/matrix_ops_typed.pyx":105
+  /* "src/cy_typed/matrix_ops_typed.pyx":108
  *     srand(42)  # fixed seed for reproducibility
  * 
  *     with nogil:             # <<<<<<<<<<<<<<
- *         for i in range(n_samples):
- *             x = rand() * inv_rand
+ *         for i in range(n_rounds):
+ *             die1 = rand() % 6 + 1
 */
   {
       PyThreadState * _save;
@@ -19646,72 +19636,72 @@ static double __pyx_f_3src_8cy_typed_16matrix_ops_typed_monte_carlo_pi(int __pyx
       __Pyx_FastGIL_Remember();
       /*try:*/ {
 
-        /* "src/cy_typed/matrix_ops_typed.pyx":106
+        /* "src/cy_typed/matrix_ops_typed.pyx":109
  * 
  *     with nogil:
- *         for i in range(n_samples):             # <<<<<<<<<<<<<<
- *             x = rand() * inv_rand
- *             y = rand() * inv_rand
+ *         for i in range(n_rounds):             # <<<<<<<<<<<<<<
+ *             die1 = rand() % 6 + 1
+ *             die2 = rand() % 6 + 1
 */
-        __pyx_t_1 = __pyx_v_n_samples;
+        __pyx_t_1 = __pyx_v_n_rounds;
         __pyx_t_2 = __pyx_t_1;
         for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
           __pyx_v_i = __pyx_t_3;
 
-          /* "src/cy_typed/matrix_ops_typed.pyx":107
+          /* "src/cy_typed/matrix_ops_typed.pyx":110
  *     with nogil:
- *         for i in range(n_samples):
- *             x = rand() * inv_rand             # <<<<<<<<<<<<<<
- *             y = rand() * inv_rand
- *             if x * x + y * y < 1.0:
+ *         for i in range(n_rounds):
+ *             die1 = rand() % 6 + 1             # <<<<<<<<<<<<<<
+ *             die2 = rand() % 6 + 1
+ *             if die1 + die2 >= 7:
 */
-          __pyx_v_x = (rand() * __pyx_v_inv_rand);
+          __pyx_v_die1 = ((rand() % 6) + 1);
 
-          /* "src/cy_typed/matrix_ops_typed.pyx":108
- *         for i in range(n_samples):
- *             x = rand() * inv_rand
- *             y = rand() * inv_rand             # <<<<<<<<<<<<<<
- *             if x * x + y * y < 1.0:
- *                 inside += 1
+          /* "src/cy_typed/matrix_ops_typed.pyx":111
+ *         for i in range(n_rounds):
+ *             die1 = rand() % 6 + 1
+ *             die2 = rand() % 6 + 1             # <<<<<<<<<<<<<<
+ *             if die1 + die2 >= 7:
+ *                 wins += 1
 */
-          __pyx_v_y = (rand() * __pyx_v_inv_rand);
+          __pyx_v_die2 = ((rand() % 6) + 1);
 
-          /* "src/cy_typed/matrix_ops_typed.pyx":109
- *             x = rand() * inv_rand
- *             y = rand() * inv_rand
- *             if x * x + y * y < 1.0:             # <<<<<<<<<<<<<<
- *                 inside += 1
+          /* "src/cy_typed/matrix_ops_typed.pyx":112
+ *             die1 = rand() % 6 + 1
+ *             die2 = rand() % 6 + 1
+ *             if die1 + die2 >= 7:             # <<<<<<<<<<<<<<
+ *                 wins += 1
  * 
 */
-          __pyx_t_4 = (((__pyx_v_x * __pyx_v_x) + (__pyx_v_y * __pyx_v_y)) < 1.0);
+          __pyx_t_4 = ((__pyx_v_die1 + __pyx_v_die2) >= 7);
           if (__pyx_t_4) {
 
-            /* "src/cy_typed/matrix_ops_typed.pyx":110
- *             y = rand() * inv_rand
- *             if x * x + y * y < 1.0:
- *                 inside += 1             # <<<<<<<<<<<<<<
+            /* "src/cy_typed/matrix_ops_typed.pyx":113
+ *             die2 = rand() % 6 + 1
+ *             if die1 + die2 >= 7:
+ *                 wins += 1             # <<<<<<<<<<<<<<
  * 
- *     return 4.0 * inside / n_samples
+ *     return <double>wins / n_rounds
 */
-            __pyx_v_inside = (__pyx_v_inside + 1);
+            __pyx_v_wins = (__pyx_v_wins + 1);
 
-            /* "src/cy_typed/matrix_ops_typed.pyx":109
- *             x = rand() * inv_rand
- *             y = rand() * inv_rand
- *             if x * x + y * y < 1.0:             # <<<<<<<<<<<<<<
- *                 inside += 1
+            /* "src/cy_typed/matrix_ops_typed.pyx":112
+ *             die1 = rand() % 6 + 1
+ *             die2 = rand() % 6 + 1
+ *             if die1 + die2 >= 7:             # <<<<<<<<<<<<<<
+ *                 wins += 1
  * 
 */
           }
         }
       }
 
-      /* "src/cy_typed/matrix_ops_typed.pyx":105
+      /* "src/cy_typed/matrix_ops_typed.pyx":108
  *     srand(42)  # fixed seed for reproducibility
  * 
  *     with nogil:             # <<<<<<<<<<<<<<
- *         for i in range(n_samples):
- *             x = rand() * inv_rand
+ *         for i in range(n_rounds):
+ *             die1 = rand() % 6 + 1
 */
       /*finally:*/ {
         /*normal exit:*/{
@@ -19723,20 +19713,20 @@ static double __pyx_f_3src_8cy_typed_16matrix_ops_typed_monte_carlo_pi(int __pyx
       }
   }
 
-  /* "src/cy_typed/matrix_ops_typed.pyx":112
- *                 inside += 1
+  /* "src/cy_typed/matrix_ops_typed.pyx":115
+ *                 wins += 1
  * 
- *     return 4.0 * inside / n_samples             # <<<<<<<<<<<<<<
+ *     return <double>wins / n_rounds             # <<<<<<<<<<<<<<
 */
-  __pyx_r = ((4.0 * __pyx_v_inside) / ((double)__pyx_v_n_samples));
+  __pyx_r = (((double)__pyx_v_wins) / ((double)__pyx_v_n_rounds));
   goto __pyx_L0;
 
   /* "src/cy_typed/matrix_ops_typed.pyx":86
- * # monte_carlo_pi  typed version
+ * # simulate_dice_game  typed version
  * # ---------------------------------------------------------------------------
- * cpdef double monte_carlo_pi(int n_samples):             # <<<<<<<<<<<<<<
+ * cpdef double simulate_dice_game(int n_rounds):             # <<<<<<<<<<<<<<
  *     """
- *     Monte Carlo pi estimation  fully typed Cython.
+ *     Monte Carlo dice game  fully typed Cython.
 */
 
   /* function exit code */
@@ -19745,23 +19735,23 @@ static double __pyx_f_3src_8cy_typed_16matrix_ops_typed_monte_carlo_pi(int __pyx
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3src_8cy_typed_16matrix_ops_typed_5monte_carlo_pi(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_3src_8cy_typed_16matrix_ops_typed_5simulate_dice_game(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_3src_8cy_typed_16matrix_ops_typed_4monte_carlo_pi, "\n    Monte Carlo pi estimation \342\200\224 fully typed Cython.\n\n    Uses libc rand() \342\200\224 a C-level RNG that returns int in [0, RAND_MAX].\n    All variables are C types on the stack:\n      cdef int i, inside\n      cdef double x, y\n    No PyObject* created inside the loop. No boxing. No GIL needed.\n\n    Speedup vs Python: ~50-150x depending on n_samples.\n    ");
-static PyMethodDef __pyx_mdef_3src_8cy_typed_16matrix_ops_typed_5monte_carlo_pi = {"monte_carlo_pi", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_3src_8cy_typed_16matrix_ops_typed_5monte_carlo_pi, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_3src_8cy_typed_16matrix_ops_typed_4monte_carlo_pi};
-static PyObject *__pyx_pw_3src_8cy_typed_16matrix_ops_typed_5monte_carlo_pi(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_3src_8cy_typed_16matrix_ops_typed_4simulate_dice_game, "\n    Monte Carlo dice game \342\200\224 fully typed Cython.\n\n    Rules: roll 2 six-sided dice, win if sum >= 7.\n    Returns estimated win probability after n_rounds rounds.\n    True probability = 21/36 \342\211\210 0.5833.\n\n    Uses libc rand() \342\200\224 a C-level RNG that returns int in [0, RAND_MAX].\n    All variables are C types on the stack:\n      cdef int i, die1, die2, wins\n    No PyObject* created inside the loop. No boxing. No GIL needed.\n\n    Speedup vs Python: ~10-30x (Python uses random.randint which is slower\n    than rand() % 6 + 1 in C).\n    ");
+static PyMethodDef __pyx_mdef_3src_8cy_typed_16matrix_ops_typed_5simulate_dice_game = {"simulate_dice_game", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_3src_8cy_typed_16matrix_ops_typed_5simulate_dice_game, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_3src_8cy_typed_16matrix_ops_typed_4simulate_dice_game};
+static PyObject *__pyx_pw_3src_8cy_typed_16matrix_ops_typed_5simulate_dice_game(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ) {
-  int __pyx_v_n_samples;
+  int __pyx_v_n_rounds;
   #if !CYTHON_METH_FASTCALL
   CYTHON_UNUSED Py_ssize_t __pyx_nargs;
   #endif
@@ -19772,7 +19762,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("monte_carlo_pi (wrapper)", 0);
+  __Pyx_RefNannySetupContext("simulate_dice_game (wrapper)", 0);
   #if !CYTHON_METH_FASTCALL
   #if CYTHON_ASSUME_SAFE_SIZE
   __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
@@ -19782,7 +19772,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   #endif
   __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
   {
-    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_n_samples,0};
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_n_rounds,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
     if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 86, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
@@ -19795,9 +19785,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "monte_carlo_pi", 0) < (0)) __PYX_ERR(0, 86, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "simulate_dice_game", 0) < (0)) __PYX_ERR(0, 86, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("monte_carlo_pi", 1, 1, 1, i); __PYX_ERR(0, 86, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("simulate_dice_game", 1, 1, 1, i); __PYX_ERR(0, 86, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -19805,22 +19795,22 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
       if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 86, __pyx_L3_error)
     }
-    __pyx_v_n_samples = __Pyx_PyLong_As_int(values[0]); if (unlikely((__pyx_v_n_samples == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 86, __pyx_L3_error)
+    __pyx_v_n_rounds = __Pyx_PyLong_As_int(values[0]); if (unlikely((__pyx_v_n_rounds == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 86, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("monte_carlo_pi", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 86, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("simulate_dice_game", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 86, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("src.cy_typed.matrix_ops_typed.monte_carlo_pi", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.cy_typed.matrix_ops_typed.simulate_dice_game", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3src_8cy_typed_16matrix_ops_typed_4monte_carlo_pi(__pyx_self, __pyx_v_n_samples);
+  __pyx_r = __pyx_pf_3src_8cy_typed_16matrix_ops_typed_4simulate_dice_game(__pyx_self, __pyx_v_n_rounds);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -19830,7 +19820,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3src_8cy_typed_16matrix_ops_typed_4monte_carlo_pi(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_n_samples) {
+static PyObject *__pyx_pf_3src_8cy_typed_16matrix_ops_typed_4simulate_dice_game(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_n_rounds) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   double __pyx_t_1;
@@ -19838,9 +19828,9 @@ static PyObject *__pyx_pf_3src_8cy_typed_16matrix_ops_typed_4monte_carlo_pi(CYTH
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("monte_carlo_pi", 0);
+  __Pyx_RefNannySetupContext("simulate_dice_game", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_3src_8cy_typed_16matrix_ops_typed_monte_carlo_pi(__pyx_v_n_samples, 1); if (unlikely(__pyx_t_1 == ((double)-1) && PyErr_Occurred())) __PYX_ERR(0, 86, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_3src_8cy_typed_16matrix_ops_typed_simulate_dice_game(__pyx_v_n_rounds, 1); if (unlikely(__pyx_t_1 == ((double)-1) && PyErr_Occurred())) __PYX_ERR(0, 86, __pyx_L1_error)
   __pyx_t_2 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 86, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
@@ -19850,7 +19840,7 @@ static PyObject *__pyx_pf_3src_8cy_typed_16matrix_ops_typed_4monte_carlo_pi(CYTH
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("src.cy_typed.matrix_ops_typed.monte_carlo_pi", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.cy_typed.matrix_ops_typed.simulate_dice_game", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -21907,18 +21897,18 @@ __Pyx_RefNannySetupContext("PyInit_matrix_ops_typed", 0);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "src/cy_typed/matrix_ops_typed.pyx":86
- * # monte_carlo_pi  typed version
+ * # simulate_dice_game  typed version
  * # ---------------------------------------------------------------------------
- * cpdef double monte_carlo_pi(int n_samples):             # <<<<<<<<<<<<<<
+ * cpdef double simulate_dice_game(int n_rounds):             # <<<<<<<<<<<<<<
  *     """
- *     Monte Carlo pi estimation  fully typed Cython.
+ *     Monte Carlo dice game  fully typed Cython.
 */
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_3src_8cy_typed_16matrix_ops_typed_5monte_carlo_pi, 0, __pyx_mstate_global->__pyx_n_u_monte_carlo_pi, NULL, __pyx_mstate_global->__pyx_n_u_src_cy_typed_matrix_ops_typed, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 86, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_3src_8cy_typed_16matrix_ops_typed_5simulate_dice_game, 0, __pyx_mstate_global->__pyx_n_u_simulate_dice_game, NULL, __pyx_mstate_global->__pyx_n_u_src_cy_typed_matrix_ops_typed, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 86, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_5);
   #endif
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_monte_carlo_pi, __pyx_t_5) < (0)) __PYX_ERR(0, 86, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_simulate_dice_game, __pyx_t_5) < (0)) __PYX_ERR(0, 86, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "src/cy_typed/matrix_ops_typed.pyx":1
@@ -22064,25 +22054,25 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
 static int __Pyx_InitConstants(__pyx_mstatetype *__pyx_mstate) {
   CYTHON_UNUSED_VAR(__pyx_mstate);
   {
-    const struct { const unsigned int length: 8; } index[] = {{2},{68},{35},{54},{37},{60},{24},{52},{26},{34},{29},{33},{45},{22},{15},{179},{37},{30},{32},{1},{1},{1},{1},{1},{8},{5},{6},{15},{23},{25},{7},{6},{2},{6},{35},{9},{30},{50},{39},{34},{8},{33},{20},{32},{22},{30},{37},{1},{5},{1},{5},{8},{20},{8},{15},{3},{15},{18},{4},{1},{9},{17},{18},{5},{8},{5},{15},{5},{6},{9},{5},{5},{7},{6},{7},{8},{12},{2},{10},{5},{13},{5},{8},{8},{6},{10},{7},{4},{10},{14},{9},{4},{8},{4},{7},{2},{5},{3},{4},{3},{14},{11},{10},{19},{14},{12},{10},{17},{13},{8},{12},{10},{12},{19},{5},{4},{29},{5},{4},{4},{6},{8},{6},{6},{6},{1},{5},{103},{139},{107},{1}};
-    #if (CYTHON_COMPRESS_STRINGS) == 2 /* compression: bz2 (1404 bytes) */
-const char* const cstring = "BZh91AY&SY>Xb\217\000\000\274\377\377\377}\366\270{\347\375W\277#\377 \277\377\377\360@@@@@@@@@\000@@@\000@\000P\005\035\316\270[{p\356\316Mv\307=\336BQ\023@\215\032z\022aOS\312=O$\320\000\003@\000\320z\231\250\032z\214G\224a\006\202\002i\212\232\236\246\365\t\232\203\3240\233P\001\210\032\000\006\000F\231\032\032\000%4\"i\242G\250\311=\024\364\323Sj\032\000\321\352\000\003\324\000\000\003@\323CO(\032%M\251\350\004\311\232\206M4\323\t\200\206\230\2310\200\30110F\023\021\200\233@\224\"h\236\246iQ\352{J?*\001\3521\250\006F\200\003\312\036\246\021\220\000\006 \031\212j\032\357\377r-\0045g\010\330\025\001R\007\2602 cpT\032D\2216P\214\270\0103jp\303\010:x\312\265\331\265\r\325\243\234D\274\343\201-4~\\\251\211\242\373\177c\274~\004w\243\272\277.\217\353\t\350\212\372\257\334\312\275\331\266V\037:\244\216\210+\317\213\227\037\270\366\307\246\271\004V3\212\t3\231\037\203\367\235\252\310}m\275\347\203\337@\332\005HVa\225CNG)\332\032;\367\213\222\242\331\242\013i\0355\242\357\333\014\236\366O\030\023\252\023\304\004\213\007\302\223a\261G^\2644\2564Mu2\363\213\300\250ka\315a\300T\362\26344uT\253\337\033\006\270\267^8Up5\272\344\305\005\024*P\246m\254\320\301\330(\307\242\261b\341}v\362\306'\301\231\343x\375\332\267\257\307\200\303$e?\\1\3427mto$\222\317\367d\264\275\265>V\375\0337\362\007\026\371\t\354\323s\237\034Z'\210-e_\334\3006\277-\2406\353\021\027\013SafoN1\316\270\3265Byg\267\022+e\345\315l\211\201f\334F\251 I\320\352]\330\2423E(bR(\030\nh\230\3153V0J\026Q\034Fo6\333\311QA\305os$r\277?\321!\217\332\340\202\310O\333\310\362D\006\007A\260\004\256\255l\252\252\236\020\310\262\027okW\026Tb\304?\010\345\013\017\251\025\200\3658\351\215c\207\256Z^0\326\017\001\301r\3453\235\253h2r\350\221\221I\263\001&\373\236\034\326\233M\2368\204wC\020\274\030X?\212,\"\022\023q\323S\370\241\201\267\307\317\006\023\037\276)\307P\320h;\023\330\307\263CaFS\312\240\3043\207Lb\343\262dz1x\222\n \213_\263\377dB\360\237k\362\312^$7Z\263]\314:\347^\311s>\006XR\204\342\356U-\351\260F/\2517R\004""\212>0\366\273rP\337\301\257U0X2\213W\375r)E\024mG\370&pZ\2673\336\3518H`S\277\260\305\025`\245\224\220\325n\261E\222\323\037\0353O\032dUV\337D\221IK\224\270\375\254\203\263\301p\246\004*\013\326\325\003\275\222\267J\264\276\331\0323\035\034nJ\002\370&\330\206\341[N\037?n\374\233\256\306\007RHJ\227\305\2636M\323\033\267AZ\3472\223\031\320\256u\324d\324BU\250\3070Y\247\022c\300\331\224c\256\266\347&\240\245\200\234s!Ze(\030\315\003D\357\272\340\244\330\331`\213\373\2704\332R:Q\344\254)\245\362\266&\030\321\217\024Hb\352\335 \014\205\321\005\005\272\"DOqU^FWY\025\240\265\235!<m\210\220N\350V:\252n\360j)=\245\213\0075\332\256\341Qf\211A\223U\213SbHHEp\025C\021\260\230\010\321SN\034\312\360HED\252\262\242\364\234\232\005\253\212\000\350\320;I\257\2603\262\214\024N\025\322U=\302\241\2249Ps\006g'nl\220\220\335\2559\014z\315\225\216\r\236M\351\\xY\030\224F9\355t\360baio\311\014\265\312\2542$0L\206GvS\254D\325E\013\240\251\204$<\244\260\340HB\232Qf\204D\217-\202\307\276\352\231\303\301\206\021\246do`\321\264\324v7\234\330\"\316\367\332\252\364\254\264%HIo\213z\231\234\273\224\300\337\301\265\362CD\3446[[:\251]\265\220\332>\232\031#s+\363\262\035\034j\327\327\255\305\255o&\342\020N\323Bd\262z&n5\255a\273x\2766\247\215,^\224t$\302&\370\240\200S+:\321a\337q8T\2074\205$GP\350\320\322p\004%%\n\240\260\264\222\307\300\236\373\340\343q\200h\227\277\326\006\200\363Za\032\246\031\227Pp\256\023\001\322:\231\006`\335\223\247k\226\022\363\3640\300(\345\006\240rI\261\365\t\220\t\0033\t\003\341B\030`\316\354\000\241N'\n,\233\210Zf\231\307\024\204\357\205/\020\356\300'I\250T&\"\304\317>\255\315\375\344\316\233\373;`\343\200T\263\334Eb#~y\305\342\341\334\027Jj\276\227\217g\022\020\177\264\245\221E\237W\241\036\272R\362p\324\306r\251\177\035\252.\323><\223q\327\3329<q{\215\223\370)\376$f*\265\"\177\321\214\251.B\326\341\345\305\212\220p\260\337\027rE8P\220>Xb\217";
-    PyObject *data = __Pyx_DecompressString(cstring, 1404, 2);
+    const struct { const unsigned int length: 8; } index[] = {{2},{68},{35},{54},{37},{60},{24},{52},{26},{34},{29},{33},{45},{22},{15},{179},{37},{30},{32},{1},{1},{1},{1},{1},{8},{5},{6},{15},{23},{25},{7},{6},{2},{6},{35},{9},{30},{50},{39},{34},{8},{33},{20},{32},{22},{30},{37},{1},{5},{1},{5},{8},{20},{8},{15},{3},{15},{18},{4},{1},{9},{17},{18},{5},{8},{5},{15},{5},{6},{9},{5},{5},{7},{6},{7},{8},{12},{2},{10},{5},{13},{5},{8},{8},{6},{10},{7},{4},{10},{8},{4},{8},{4},{7},{2},{5},{3},{4},{3},{14},{11},{10},{19},{14},{12},{10},{17},{13},{8},{12},{10},{12},{19},{5},{18},{4},{29},{5},{4},{4},{6},{8},{6},{6},{6},{1},{5},{139},{107},{94},{1}};
+    #if (CYTHON_COMPRESS_STRINGS) == 2 /* compression: bz2 (1386 bytes) */
+const char* const cstring = "BZh91AY&SY\337\326-\220\000\000\272\377\377\377}\376p\373\347\357W\277#\377 \277\377\377\360@@@@@@@@@\000@@@\000@\000P\005\017q\210\310\032\006\266\3013\tD\202a4j\237\223*ze6\236\250h\3755F@\031\000\032\001\243OS 4\365\036\241\352zmS\364\241\300\3204\003@\320\320\001\241\220\323@\r4\003@\000d1\000\006\203M\010\004\020\236\202\230\321O$\323\324\365\036\232\200\365\000\320h\000\000\006\217Q\241\206Hp4\r\000\32044\000hd4\320\003M\000\320\000\031\014@\001\240\224\"i\240\"\r\245=\222\021\246\200\320\003\020\003 \3201\003#@2d\321\243\266\327\002\277_\235\023:\037\323C3\213\244\261,B!+5%\202\266\216$\323\244\350\332\021\24419\005?\330\310%\010\225\205\365(2\"M\021\362\244\035\311\230\277\360\373\233\346\340\355\367~\217\355\335\377\244\375\326\217\264\275\353G\276\363\264\302\335\022H\370\030G\325\242\212\205\357,\351\325\033\005g~\231\255\346\364>\347\217\223\337y\377wg\370\247)`!\200e\2367\207\305J\370\"\306\341\001\342\253T9i\334C\t\346n\250\300\370\247+-fU\244\036\366*\314\003\203%\224\037\006\224\356\205\333\313@\024\343aN\311\204\025\013\364d\272\340\023\312[fV\207'\231e\225\346\r8r\355\274\352\256&\232\244\210\275,\254`d\337\3119\330\026]\227\262\302\\\276s\027\206\227\304\340g\305\351\010\2169\231x\315\205\375sb\007~\233\026\2508\371[W\322\344\021\375\231\005\351\032\232H\032\310\324Y\333p\237Q\035\372\243\017\343\r\000f\363\017\371p\001\255\300\300\006\330\250\207\205\223\224\336\334\363\020\206\266V ?\013\372,\340\316\334\357\031\220\354nM\202\367F\004\225P\245\325P@\213\210\204\002\242H\200\245W\027%\235\305eK\326(L\214-\340\300^:n\350\3263\370z\305\206]\035\367\304;Zz\031$\310\014\035\027<\037F\022\314\0302B\021X\232Wa\312\026te\214I2\307\250`>\305\013\001\352f\247H\242\3552\322c.\370<\007\005\313\023X\363\226\342\254\331\275\212\334\227>\000`\306:\361\021\204\014\013\373\264\013\036.a\240:m\352aTAaz\205)\017\352\002CO-\322@Pt\320\250R\310\3030T\017\301N(\014\204\020\277\ta@.\014\245\005\024*\024#\241\252\316\214 @i\327\217\311`\307\262\272\327\205\311\3552j""\213\307\to\215\371\223\306\262\026\224 \036\212\261 \214\3570\032\213yN\262\001\"\013FY\3256\300h\222V%\330L\0134\343\343P\320\201h%\343\302\n(\006\374.\317\315\000\221r=\236U \227\311r\021\323\252\303s\021\235k<\256\306i\332$\266\362%\010\250\300\246\003J\325t7dlRT.\004\032\327\035<\025F\325\330\321aZ\231\003\206\327=\244x,\001M$'`\360\352;\276\243hq\212\240\220\353$\202aZ%\303'\251A\215L\212JN\304\240\263\210\332\353\305\022\004\023\030\204\035\220&\217@\355\275\225\232\233\221\237\246\036 2p\244M\3501\303\260\300h\317\0209\213GPd\245j)\036\215\276\304\022\246\370\242\262Yw\022\323!\3404\346U\237o\237U\200(5P$\335\365R\310\221LVHQ\265Vo\200\254T\220U\265\2638\005V\252\264\035r\030\351\220\203\362\032 \034uH\252\201\0247\020\344\013$PN\031\022A \210\310\030\201@\222vF\314a\233v\341\035.\023\250\225^\250\232\267'4\304\266@\035<Gs\332\206\006v\250\301\000\275IT-\014\005YD@Qr\"\207\327r\022\t\t\311\233h\2055%\230i\313\232\260\2156!\024(\214q\215\262\210\310\327\013\316\277\t4L\264\206\274\350t\034\306\235b\323J\212\032\300\251x+\036R`/\326!M(\262Bq'\34509\326\322\322\274\260\0340\215\006D\234m\301F\340\"\n\262\324b\260\213\243\023\006$\342\013\314pU\3421\2713o\2623\322\301-\251\0328A\271\315\3013,3\013\021\205\253\351!\nF\351\235tl\033\0306GAM\200\200\372\206p\356(V\005\023t\344e\232\255ZN\034\216\202\260\202\220J$f\242A\212W\26779E\"3 \332\202\374\020\342#L\n\3370\202\326`\314\023\212\010\265\224\322R\310\032k \025\\\376J\210\001\"\330q\017x\215\370\034A\236<D\r\253\345^\230\013\234\231\231\323='_\032\236*K.e\260\271#V\251*\004\202\252\222\013\006f\0305\335\224\n\025ap\242\336lE\246\264\2161\220\225\360\245\342\035\350\004\251$U\n\211y\254\256\034\271\277)\304\231\270\206\317\320\251\332ED\375\234\037/\346\3334\360\212\332m\341M\342\2644Y\247B\021\362o$\213Y\200\372\245+\310b\222\311E\226\314}\342\253x\241\207\330j\361\332\337\037?\302\232\214G\302+\261*<\344\337\356\202`\247\014\237d\342\251\005`_\377\027rE8P\220\337\326-\220";
+    PyObject *data = __Pyx_DecompressString(cstring, 1386, 2);
     if (unlikely(!data)) __PYX_ERR(0, 1, __pyx_L1_error)
     const char* const bytes = __Pyx_PyBytes_AsString(data);
     #if !CYTHON_ASSUME_SAFE_MACROS
     if (likely(bytes)); else { Py_DECREF(data); __PYX_ERR(0, 1, __pyx_L1_error) }
     #endif
-    #elif (CYTHON_COMPRESS_STRINGS) != 0 /* compression: zlib (1240 bytes) */
-const char* const cstring = "x\332\225U\261n\0347\020\225\022\311\260\023#\321\t6\214\330\r\225\3009\033\260\326\226#\004A\240(\220\345\013\240\"\266l\305\001R\021<r\356\304x\227\\\221\334\323\255\253\224*\267\334\362J\225.]\346\023R\252\324'\370\0232\303\335\223N\226\021 \305Q\\r\206\363\346\315\233\321\217l+M\231\322\031\030\257\255\361,w Ai3<?dw\025\313\n\037X\037\2306\n\306\240\2300\212\031\033\230O5\232?)\006\003pl\244\341\220)\013>^\3018\267\036\230\017N+\360\333\3020k\322\222I\007\"\000\023\254\3378\205}\021\230\366LZ\023\364\260\260\205\307 ,\203\314\2722A/zJx\257\207\206\005\313\320Y\255\306w\032\013\n\331\032\265\017\037:\035D?\205\326\240\0015p6\373/\337\230\026;\324a\237\2052\007\326m\317\203\023\306\3074\316]\0323\364\320HU\230\341\356\351,a\272!\2411\352ey(\231\337\027\370t(r\0047\260\216\3112\354[\223\010\347D\271\023\001\330\"0;`}[\030\345\331=1\306W\356\252\373;\227c5\344\027yn]\000\265cF\"\325X%\253\340\001\021\217\306X\244\256\3542\214\323\305`\224H\367\001\033\242\327\324\270\201\203\\\3070\033\277\306\004\177\247\004\021\3023\213T\306\322lG\224\224\217\202T\367\301!\311H!\225\025\203\304\372\031\266\333\333]]\377a=\312\302\301\237\030\336#\272\276L\261r(\007\312\251\320i\300`D\257O\330\316\200\225\266`\006\020&\2265G\273Y\207\260\017\206y\010\264a\335X\013\0210o\216\356\250\315n\313\253\036\001y\377\"R\017\311\363\013\344!\344V`BJ\360S6\367\002\344,\023e\344\017\365\374\006\234='\372\225\211\312\301'Q\215#p(\214\000\031}\333>%\225lv\357\377,\224\342\206\350\241d\0312\364h,m\232\022\034,L\"\372rcF\313d\324\200\335\374\360x*\241M\245=\305\205\030}(\331=*\3230\252\2072\240f\204q\000\023bk\234\367\245\366\215\213\"\224^\277\001\266\361\023{tI[\306b\351\006\242H\003\343\334\201*$p\316T\021\0235\326\254b)GZ\244x+\265\321\201sSdy\231pi\035$\031\372\351\370\016\033\010\2356\365\322\031\to\326\254\310\004v\305\207\026-o\233\336\311\207\262\244\352\201z\210\226N\217\271\315}s\220\344\345x\243\031\023\352\002_\227\317H\316g\264]\270?;-\316j(\322\324\3128k\"z%\202H>r\333\364\001\275""\321\216\252dkko{g\347\311\323\337\376\330\355\365\322T\347^{\316w\3131\376\236\242\352\3713,\307K\030\354\301A\001F\0025Mr\336?\250\200\351\343\274\321\240\360\245\221\332&\310\024\266\2706\340\373\302\203D\276I\357\234O7C\010TJ\372D#\256Q\357NH\350\013\371Z\242\254\2612\212\302s\025y\243\205#\262\206c\240\031\203hp\004\000\026&\366)8g\335 \025C?H\255\010\337\257\2434\220\375v\036p>(\214\244\350\030\327\007\202\313\265\302_,\035\376\245\231D\001\316`7:k\305\306y&\020!\256\0015\322\026\025\233\003'%\215I\232ExiU\221\306\277\006\237\227\302\245\226c\007s/2\034\203\336\210\014/\333\025\205\215+\034\342\222Giab9\246\236\333\234s\324\010\227\373 _\373\"k\276Z\304\264\215L\304]ar-_c\304\236\231\332\215\342\277\003J\363\240\020i\023\353\274\017\316vM\307\314\034`\356\270\035j\217S\216s\034F-N\334\265\355\024\367-\214\231\375\364\245(,b\n\325\237L\325\237|\250~\364q\350\010\271\017x\026\\A\005\016\340q\305d0\375\"G\345\002\316\354\002\374\230\346\225\377g\356N\275\366\376\366\334\342\255J\234.\334\251\327k7\351\234.\\;\352\034\255\234^\373\354\344\352\365\243^u\263\022\325\301\311\365\245j\241\332\256\\\335\271\260\375\362\310U\313\325\343\352%~.\327\217\353\227\365\301\311\322\355z\345t\341\363\243u\274\273U\177R\257\3745\377\376\213\271\305\345\252S}[\317\243\327B\347#\333\367W\347\026\037\036\367\337^y\333\177\367\351\273\365w\243\277_\234,\320K\227p,V\257\352\225z\355d\351F\265EK\257\276Y\013\214{\343\253\272\203\027\337\325r\262<Y\233lM\366\216\347O\226(\3007\344A\220\326\020\312\225\217C\241\363\377\031\377\354\351z\255\336\256\375\344k\214\371b\"\217;1\324\363\177\001\351lq\340";
-    PyObject *data = __Pyx_DecompressString(cstring, 1240, 1);
+    #elif (CYTHON_COMPRESS_STRINGS) != 0 /* compression: zlib (1229 bytes) */
+const char* const cstring = "x\332\225TOo\0345\024O \251J\251 )\215\004\\p\213\312\266R3mD@\025\nAI\272H9\320\246\204\"q\262<\366\333\215\351\214=\261=\233\235\2368\3468\3079\356\261\307\036{\344#p\334c?B?\002\357yf\223mS!qX\357\033\373\375\375\275\337{?\260\235,cJ\347`\274\266\306\263\302\201\004\245\315\360\374\222\335R,/}`)0m\024\214A1a\024360\237iT\337-\007\003pl\244\341\204)\013>>\301\270\260\036\230\017N+\360{\3020k\262\212I\007\"\000\023,m\215\302\221\010L{&\255\tzX\332\322c\020\226Cn]\225\240\025\271\022\336\353\241a\30124V\353\321O\253A!;\245\316\361\211\323A\244\031t\nmR\003g\363\377\262\215e\261\023\035\216X\250\n`\275\356>8a|,\343\334\244UC\013\215P\2059\354\036\316\003\246[\020Z\245~^\204\212\371#\201\256CY`r\003\353\230\254\302\2215\211pNT\3731\001[\006f\007,\265\245Q\236\335\026c\364rK\335\331\277\030\253\005\277,\n\353\002\250}3\022\231\306.Y\005w\txT\306&\365d\217a\234\036\006\243Bzw\331\020\255f\312m:\210u\014\263\365K,\360w*\020Sxd\021\312\330\232\275\230%\325\243 \323)8\004\031!\244\266b\220\330?\303\016\372\007\353\233\0176#-\034\374\211\341=f\227\312\014;\207t\240\232J\235\005\014F\360\372\204\355\017XeKf\000\323\304\266\026\2507o\020\216\3000\017\201\004\326\213\275\020\001\353\346h\216\334\354u\270\352\021\220\365\317\"\363\220<~\013<L\271#\230\220\022\374\014\315\303\000\005\313E\025\361C>?\007g\317\201~j\"s\320%\262q\004\016\211\021 \247o\233RQ\311v\357\316OB)n\010\036*\226!B\367\307\322f\031\245\203\215ID*\267\346\270LJm\262\333\357^\317(\264\255\264\247\270\020\243\017%\273Mm\032F\366P\0054\2140\016`B\034\215\363\271\324\2765Q\224\245\327\317\201m\375\310\356_\340\226\261\330\272\201(\263\3008w\240J\t\2343U\306B\2155\353\330\312\221\026\031\276Jmt\340\334\224yQ%\\Z\007I\216v:\372a\003\241\263\266_:'\342\315\253\225\271\300\251xW\243\303m\333;yOV\324=P\367P\323\3511\267\205o/\222\242\032o\265kB\275\205\327\305;\242\363\031lo\275\237\335\226g=\024Yfe\33451{%\202H\336\363\332\316\001\371\350VU\262\263s\270\267\277\277\373\360\267?\016\372\375,\323\205\327\236\363\203j""\214\277\207\310z\376\010\333\361+\014\016\341\270\004#\201\206&9\237\037d\300\3149o9(|e\244\266\t\"\205#\256\r\370Tx\220\2107\361\235\363\2310\204@\255\244OT\342\032\371\356\204\204T\310g\022i\215\235Q\024\236\253\210\033\035\0343k1\006\3321\230\r\256\000\300\306\3049\005\347\254\033db\350\007\231\025\341\373M\244\006\242\337\355\003\316\007\245\221\024\035\343\372@\351r\255\360\027[\207\377\264\223(\300Y\332-\317:\262q\236\013\314\020\317\200\034\351\232\212\303\201\233\222\326$\355\"|\264\252\314\360\337p\027\347\322\210\234\276\332\023\231\214'\234\340QD.a%\005\326Z\330\202s$\005\227G \237\3712o\277\272\024I\214\245G\2514\205\226\3170D\337\314\364Fq\377S]\307\245\310\332X\347\304?\223\332\021\231\273\300bQ\034j\217k\215s\334>]\236(u\363\023\345.\2159y\346)2\311kD\203n\261U\300\207\350\201\300\302\001Hf\003\220\274;\000\350\305\241+(|\300\273\340J\352q\000\217'\226\207\200\224\005\222\027pm\227\340\307\264\262\374_\213o>YX\276V\257\326\3374\213\315\352ti\365=\342\233\313\013\313\367^\244//\275L_}\370j\363\325\350\357'\323\245/\233\033\257?\2722\275|\365\264_\257\325\242>\236^]\251\227\353\247\315\215fc\272r\275\336\241\243\337\2545\2429\236^\377\242Y\305\207o\0339\2716\331\230\354L\016_,NW(\300\327d\361z\351\343\323\rL\345\322\373S\241\373\377\031\377\314u\263\321\3545~r\023c>\231\310\027\2531\324?\013_5\307on.,\257\325;\344\374\312\351\352\351\005o\237\325\233\265on6\273M:Y\274\360\371\351iY\357\326\200%\211\351\312\347\315\"\371}P\177\327|\320\334x\374/\322\203o{";
+    PyObject *data = __Pyx_DecompressString(cstring, 1229, 1);
     if (unlikely(!data)) __PYX_ERR(0, 1, __pyx_L1_error)
     const char* const bytes = __Pyx_PyBytes_AsString(data);
     #if !CYTHON_ASSUME_SAFE_MACROS
     if (likely(bytes)); else { Py_DECREF(data); __PYX_ERR(0, 1, __pyx_L1_error) }
     #endif
-    #else /* compression: none (2323 bytes) */
-const char* const bytes = ": All dimensions preceding dimension %d must be indexed and not slicedBuffer view does not expose stridesCan only create a buffer that is contiguous in memory.Cannot assign to read-only memoryviewCannot create writable memory view from read-only memoryviewCannot index with type 'Cannot transpose memoryview with indirect dimensionsDimension %d is not directEmpty shape tuple for cython.arrayIndex out of bounds (axis %d)Indirect dimensions not supportedInvalid mode, expected 'c' or 'fortran', got Invalid shape in axis <MemoryView of Note that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the 'annotation_typing' directive to False.Out of bounds on buffer access (axis Step may not be zero (axis %d)Unable to convert item to object.>')?add_note and  at 0xcollections.abc<contiguous and direct><contiguous and indirect>disableenablegc (got got differing extents in dimension isenableditemsize <= 0 for cython.arrayno default __reduce__ due to non-trivial __cinit__numpy._core.multiarray failed to importnumpy._core.umath failed to import object>src/cy_typed/matrix_ops_typed.pyx<strided and direct><strided and direct or indirect><strided and indirect>unable to allocate array data.unable to allocate shape and strides.AASCIIBDTYPEEllipsis__Pyx_PyDict_NextRefSequenceView.MemoryViewabcallocate_bufferasyncio.coroutinesbasec__class____class_getitem__cline_in_tracebackcount__dict__dtypedtype_is_objectemptyencodeenumerateerrorflagsfloat64formatfortran__func____getstate__id__import__index_is_coroutineitemsitemsize__main__matmulmatrix_addmemviewmode__module__monte_carlo_pin_samplesname__name__ndim__new__npnumpyobjpackpop__pyx_checksum__pyx_state__pyx_type__pyx_unpickle_Enum__pyx_vtable____qualname____reduce____reduce_cython____reduce_ex__register__set_name__setdefault__setstate____setstate_cython__shapesizesrc.cy_typed.matrix_ops_typedstartstepstopstruct__test__unpackupdatevaluesxzeros\320\000\033\2301\360\032""\000\005\027\220a\340\004\033\2304\230r\240\021\340\004\t\210\021\210!\340\t\n\330\010\014\210E\220\025\220a\220q\330\014\020\220\004\220C\220r\230\021\330\014\020\220\004\220C\220r\230\021\330\014\017\210r\220\022\2202\220R\220r\230\022\2302\230R\230q\330\020\032\230!\340\004\013\2104\210r\220\027\230\002\230!\200\001\360\016\000\005\022\220\021\220&\230\001\230\021\330\004\021\220\021\220&\230\001\230\021\330\004\021\220\021\220&\230\001\230\021\360\010\000\005/\250b\260\006\260b\270\003\2704\270v\300Q\330\004\032\230!\340\t\n\330\010\014\210E\220\025\220a\220q\330\014\020\220\005\220U\230!\2301\330\020\024\220A\330\020\024\220E\230\025\230a\230q\330\024\031\230\021\230!\2303\230c\240\022\2401\240A\240S\250\001\330\020\021\220\021\220#\220U\230!\340\004\013\2101\200\001\360\006\000\005\022\220\021\220&\230\001\230\021\330\004\021\220\021\220&\230\001\230\021\360\006\000\005/\250b\260\006\260b\270\003\2704\270v\300Q\330\004\032\230!\340\t\n\330\010\014\210E\220\025\220a\220q\330\014\020\220\005\220U\230!\2301\330\020\021\220\021\220#\220U\230!\2301\230C\230s\240\"\240A\240Q\240c\250\021\340\004\013\2101O";
+    #else /* compression: none (2317 bytes) */
+const char* const bytes = ": All dimensions preceding dimension %d must be indexed and not slicedBuffer view does not expose stridesCan only create a buffer that is contiguous in memory.Cannot assign to read-only memoryviewCannot create writable memory view from read-only memoryviewCannot index with type 'Cannot transpose memoryview with indirect dimensionsDimension %d is not directEmpty shape tuple for cython.arrayIndex out of bounds (axis %d)Indirect dimensions not supportedInvalid mode, expected 'c' or 'fortran', got Invalid shape in axis <MemoryView of Note that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the 'annotation_typing' directive to False.Out of bounds on buffer access (axis Step may not be zero (axis %d)Unable to convert item to object.>')?add_note and  at 0xcollections.abc<contiguous and direct><contiguous and indirect>disableenablegc (got got differing extents in dimension isenableditemsize <= 0 for cython.arrayno default __reduce__ due to non-trivial __cinit__numpy._core.multiarray failed to importnumpy._core.umath failed to import object>src/cy_typed/matrix_ops_typed.pyx<strided and direct><strided and direct or indirect><strided and indirect>unable to allocate array data.unable to allocate shape and strides.AASCIIBDTYPEEllipsis__Pyx_PyDict_NextRefSequenceView.MemoryViewabcallocate_bufferasyncio.coroutinesbasec__class____class_getitem__cline_in_tracebackcount__dict__dtypedtype_is_objectemptyencodeenumerateerrorflagsfloat64formatfortran__func____getstate__id__import__index_is_coroutineitemsitemsize__main__matmulmatrix_addmemviewmode__module__n_roundsname__name__ndim__new__npnumpyobjpackpop__pyx_checksum__pyx_state__pyx_type__pyx_unpickle_Enum__pyx_vtable____qualname____reduce____reduce_cython____reduce_ex__register__set_name__setdefault__setstate____setstate_cython__shapesimulate_dice_gamesizesrc.cy_typed.matrix_ops_typedstartstepstopstruct__test__unpackupdatevaluesxzeros\200\001\360\016\000""\005\022\220\021\220&\230\001\230\021\330\004\021\220\021\220&\230\001\230\021\330\004\021\220\021\220&\230\001\230\021\360\010\000\005/\250b\260\006\260b\270\003\2704\270v\300Q\330\004\032\230!\340\t\n\330\010\014\210E\220\025\220a\220q\330\014\020\220\005\220U\230!\2301\330\020\024\220A\330\020\024\220E\230\025\230a\230q\330\024\031\230\021\230!\2303\230c\240\022\2401\240A\240S\250\001\330\020\021\220\021\220#\220U\230!\340\004\013\2101\200\001\360\006\000\005\022\220\021\220&\230\001\230\021\330\004\021\220\021\220&\230\001\230\021\360\006\000\005/\250b\260\006\260b\270\003\2704\270v\300Q\330\004\032\230!\340\t\n\330\010\014\210E\220\025\220a\220q\330\014\020\220\005\220U\230!\2301\330\020\021\220\021\220#\220U\230!\2301\230C\230s\240\"\240A\240Q\240c\250\021\340\004\013\2101\320\000\037\230q\360\"\000\005\025\220A\360\006\000\005\n\210\021\210!\340\t\n\330\010\014\210E\220\025\220a\220q\330\014\023\2204\220s\230\"\230B\230b\240\001\330\014\023\2204\220s\230\"\230B\230b\240\001\330\014\017\210u\220B\220e\2303\230a\330\020\030\230\001\340\004\013\2108\2205\230\002\230!O";
     PyObject *data = NULL;
     CYTHON_UNUSED_VAR(__Pyx_DecompressString);
     #endif
@@ -22202,8 +22192,8 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 86};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_n_samples};
-    __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cy_typed_matrix_ops_typed_py, __pyx_mstate->__pyx_n_u_monte_carlo_pi, __pyx_mstate->__pyx_kp_b_iso88591_1_a_4r_E_aq_Cr_Cr_r_2Rr_2Rq_4r, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_n_rounds};
+    __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cy_typed_matrix_ops_typed_py, __pyx_mstate->__pyx_n_u_simulate_dice_game, __pyx_mstate->__pyx_kp_b_iso88591_q_A_E_aq_4s_Bb_4s_Bb_uBe3a_85, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
   }
   Py_DECREF(tuple_dedup_map);
   return 0;

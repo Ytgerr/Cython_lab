@@ -81,32 +81,35 @@ cpdef cnp.ndarray[DTYPE_t, ndim=2] matrix_add(
 
 
 # ---------------------------------------------------------------------------
-# monte_carlo_pi — typed version
+# simulate_dice_game — typed version
 # ---------------------------------------------------------------------------
-cpdef double monte_carlo_pi(int n_samples):
+cpdef double simulate_dice_game(int n_rounds):
     """
-    Monte Carlo pi estimation — fully typed Cython.
+    Monte Carlo dice game — fully typed Cython.
+
+    Rules: roll 2 six-sided dice, win if sum >= 7.
+    Returns estimated win probability after n_rounds rounds.
+    True probability = 21/36 ≈ 0.5833.
 
     Uses libc rand() — a C-level RNG that returns int in [0, RAND_MAX].
     All variables are C types on the stack:
-      cdef int i, inside
-      cdef double x, y
+      cdef int i, die1, die2, wins
     No PyObject* created inside the loop. No boxing. No GIL needed.
 
-    Speedup vs Python: ~50-150x depending on n_samples.
+    Speedup vs Python: ~10-30x (Python uses random.randint which is slower
+    than rand() % 6 + 1 in C).
     """
     cdef int i
-    cdef int inside = 0
-    cdef double x, y
-    cdef double inv_rand = 1.0 / RAND_MAX
+    cdef int wins = 0
+    cdef int die1, die2
 
     srand(42)  # fixed seed for reproducibility
 
     with nogil:
-        for i in range(n_samples):
-            x = rand() * inv_rand
-            y = rand() * inv_rand
-            if x * x + y * y < 1.0:
-                inside += 1
+        for i in range(n_rounds):
+            die1 = rand() % 6 + 1
+            die2 = rand() % 6 + 1
+            if die1 + die2 >= 7:
+                wins += 1
 
-    return 4.0 * inside / n_samples
+    return <double>wins / n_rounds

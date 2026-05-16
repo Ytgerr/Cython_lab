@@ -38,20 +38,25 @@ def matrix_add(A: Matrix, B: Matrix) -> Matrix:
     return C
 
 
-def monte_carlo_pi(n_samples: int) -> float:
+def simulate_dice_game(n_rounds: int) -> float:
     """
-    Estimate pi using Monte Carlo method.
-    Throw n_samples random points into the unit square [0,1)^2.
-    Count how many fall inside the unit circle (x^2 + y^2 < 1).
-    pi ~ 4 * inside / n_samples
+    Monte Carlo dice game simulation.
+
+    Rules (everyone understands this):
+      - Roll 2 six-sided dice each round.
+      - You WIN if the sum is 7 or higher (the most common outcome).
+      - You LOSE if the sum is 6 or lower.
+
+    Returns the estimated win probability after n_rounds rounds.
+    True probability = 21/36 ≈ 0.5833 (21 out of 36 combinations give sum ≥ 7).
 
     This is a pure scalar loop — every variable is a PyObject*.
     Demonstrates boxing overhead perfectly.
     """
-    inside = 0
-    for _ in range(n_samples):
-        x = random.random()
-        y = random.random()
-        if x * x + y * y < 1.0:
-            inside += 1
-    return 4.0 * inside / n_samples
+    wins = 0
+    for _ in range(n_rounds):
+        die1 = random.randint(1, 6)
+        die2 = random.randint(1, 6)
+        if die1 + die2 >= 7:
+            wins += 1
+    return wins / n_rounds

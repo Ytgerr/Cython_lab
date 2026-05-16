@@ -35,7 +35,7 @@ IMPL_LABELS = {
     'python':     'Pure Python',
     'cy_untyped': 'Cython untyped',
     'cy_typed':   'Cython typed',
-    'c':          'C (standalone)',
+    'c':          'C',
 }
 IMPL_ORDER  = ['python', 'cy_untyped', 'cy_typed', 'c']
 IMPL_COLORS = {
@@ -51,7 +51,7 @@ MC_OP      = 'monte_carlo'
 OP_LABELS = {
     'matmul':      'matmul  O(n^3)',
     'matrix_add':  'matrix_add  O(n^2)',
-    'monte_carlo': 'Monte Carlo pi  (scalar loop)',
+    'monte_carlo': 'Dice Game  (roll 2 dice, win if sum ≥ 7)',
 }
 
 plt.rcParams.update({
@@ -248,14 +248,16 @@ def chart_monte_carlo():
         return None
 
     N = mc_sizes[0]
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 5))
-    fig.suptitle(f'Monte Carlo pi Estimation  (n = {N:,} samples)',
-                 fontsize=15, fontweight='bold', y=1.02)
+    fig, axes = plt.subplots(1, 3, figsize=(18, 5))
+    fig.suptitle(f'Monte Carlo Dice Game  (n = {N:,} rounds, win if sum ≥ 7)  |  True probability = 21/36 ≈ 0.5833',
+                 fontsize=14, fontweight='bold', y=1.02)
 
     impls_present = [i for i in IMPL_ORDER if get(i, N, MC_OP) is not None]
     x     = np.arange(len(impls_present))
     width = 0.5
 
+    # --- Chart 1: Execution time ---
+    ax1 = axes[0]
     times  = [ms(get(impl, N, MC_OP)) for impl in impls_present]
     colors = [IMPL_COLORS[i] for i in impls_present]
     bars   = ax1.bar(x, times, width, color=colors, edgecolor='white', linewidth=0.5, alpha=0.9)
@@ -270,6 +272,8 @@ def chart_monte_carlo():
     ax1.set_title('Execution Time', fontweight='bold')
     ax1.grid(axis='y', alpha=0.3, linestyle='--')
 
+    # --- Chart 2: Speedup ---
+    ax2 = axes[1]
     py_t     = get('python', N, MC_OP)
     sp_impls = [i for i in impls_present if i != 'python']
     speedups = [speedup(py_t, get(impl, N, MC_OP)) for impl in sp_impls]
@@ -288,6 +292,32 @@ def chart_monte_carlo():
     ax2.set_title('Speedup vs Pure Python', fontweight='bold')
     ax2.grid(axis='y', alpha=0.3, linestyle='--')
     ax2.legend(fontsize=9)
+
+    # --- Chart 3: Win probability result (the actual experiment result) ---
+    ax3 = axes[2]
+    results = []
+    for impl in impls_present:
+        r = next((rec.get('result') for rec in records
+                  if rec['impl'] == impl and rec['N'] == N and rec['op'] == MC_OP), None)
+        results.append(r)
+
+    TRUE_PROB = 21 / 36  # 0.5833...
+    colors3 = [IMPL_COLORS[i] for i in impls_present]
+    bars3 = ax3.bar(x, [r if r is not None else 0 for r in results],
+                    width, color=colors3, edgecolor='white', linewidth=0.5, alpha=0.9)
+    for bar, r in zip(bars3, results):
+        if r is not None:
+            ax3.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.002,
+                     f'{r:.4f}', ha='center', va='bottom', fontsize=10, fontweight='bold')
+    ax3.axhline(TRUE_PROB, color='#8e44ad', linestyle='--', linewidth=2,
+                label=f'Теория = {TRUE_PROB:.4f}')
+    ax3.set_xticks(x)
+    ax3.set_xticklabels([IMPL_LABELS[i] for i in impls_present], fontsize=10)
+    ax3.set_ylabel('Вероятность выигрыша')
+    ax3.set_title('Результат эксперимента\n(все должны дать ~0.5833)', fontweight='bold')
+    ax3.set_ylim(0.55, 0.62)
+    ax3.grid(axis='y', alpha=0.3, linestyle='--')
+    ax3.legend(fontsize=9)
 
     plt.tight_layout()
     path = os.path.join(RESULTS_DIR, 'chart_monte_carlo.png')
@@ -384,13 +414,13 @@ def chart_overview():
         ax4.set_xticks(range(len(impls_mc)))
         ax4.set_xticklabels([IMPL_LABELS[i] for i in impls_mc], fontsize=9)
         ax4.set_yscale('log')
-        ax4.set_title(f'Monte Carlo pi  (n={mc_N:,})', fontweight='bold')
+        ax4.set_title(f'Dice Game  (n={mc_N:,} rounds)', fontweight='bold')
         ax4.set_ylabel('Time (ms, log scale)')
         ax4.grid(axis='y', alpha=0.3, linestyle='--')
     else:
         ax4.text(0.5, 0.5, 'No Monte Carlo data', ha='center', va='center',
                  transform=ax4.transAxes, fontsize=12, color='#aaa')
-        ax4.set_title('Monte Carlo pi', fontweight='bold')
+        ax4.set_title('Dice Game', fontweight='bold')
 
     fig.suptitle('Cython Lab - Benchmark Overview', fontsize=16, fontweight='bold', y=1.01)
     path = os.path.join(RESULTS_DIR, 'chart_overview.png')

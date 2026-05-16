@@ -3,12 +3,12 @@ Benchmark runner — compares four implementations:
   1. Pure Python (lists / random module)
   2. Cython untyped (compiled, PyObject* everywhere)
   3. Cython typed   (cdef + typed memoryviews + nogil + libc rand)
-  4. C              (standalone binary, compiled from src/c_impl/matrix_ops.c)
+  4. C              (binary, compiled from src/c_impl/matrix_ops.c)
 
 Operations:
   * matmul        — O(n^3) triple loop
   * matrix_add    — O(n^2) double loop
-  * monte_carlo   — scalar loop estimating pi (best boxing demo)
+  * monte_carlo   — dice game simulation (roll 2 dice, win if sum >= 7)
 
 Usage:
     python benchmarks/bench_runner.py [--sizes 64 128] [--repeats 5]
@@ -46,14 +46,14 @@ if ROOT not in sys.path:
 from src.py_impl.matrix_ops import (
     matmul as py_matmul,
     matrix_add as py_add,
-    monte_carlo_pi as py_mc,
+    simulate_dice_game as py_mc,
 )
 
 try:
     from src.cy_untyped.matrix_ops_cy import (
         matmul as cy_u_matmul,
         matrix_add as cy_u_add,
-        monte_carlo_pi as cy_u_mc,
+        simulate_dice_game as cy_u_mc,
     )
     CY_UNTYPED_OK = True
 except ImportError:
@@ -64,7 +64,7 @@ try:
     from src.cy_typed.matrix_ops_typed import (
         matmul as cy_t_matmul,
         matrix_add as cy_t_add,
-        monte_carlo_pi as cy_t_mc,
+        simulate_dice_game as cy_t_mc,
     )
     CY_TYPED_OK = True
 except ImportError:
@@ -223,9 +223,9 @@ def run_benchmarks(sizes: List[int], repeats: int, mc_samples: int) -> List[Dict
                 records.append({"impl": name, "N": N, "op": op,
                                  "time_s": t, "mem_bytes": m})
 
-    # ── Monte Carlo ────────────────────────────────────────────────────────
+    # ── Monte Carlo dice game ──────────────────────────────────────────────
     print(f"\n{'='*60}")
-    print(f"  Monte Carlo pi  (n={mc_samples:,}, repeats={repeats})")
+    print(f"  Monte Carlo dice game  (n={mc_samples:,} rounds, repeats={repeats})")
     print(f"{'='*60}")
 
     mc_impls = [("python", py_mc)]
@@ -236,11 +236,11 @@ def run_benchmarks(sizes: List[int], repeats: int, mc_samples: int) -> List[Dict
 
     for (name, fn_mc) in mc_impls:
         t_mc, m_mc = measure(fn_mc, mc_samples, repeats=repeats)
-        pi_est = fn_mc(mc_samples)
+        win_prob = fn_mc(mc_samples)
         print(f"  [{name:12s}] monte_carlo   {t_mc*1000:10.3f} ms  "
-              f"mem={m_mc/1024:.1f} KB  pi~{pi_est:.5f}")
+              f"mem={m_mc/1024:.1f} KB  win_prob~{win_prob:.4f} (true=0.5833)")
         records.append({"impl": name, "N": mc_samples, "op": "monte_carlo",
-                         "time_s": t_mc, "mem_bytes": m_mc})
+                         "time_s": t_mc, "mem_bytes": m_mc, "result": win_prob})
 
     # ── C standalone binary ────────────────────────────────────────────────
     print(f"\n{'='*60}")
@@ -268,7 +268,8 @@ def save_results(records: List[Dict], out_dir: str) -> None:
 
     with open(csv_path, "w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=["impl", "N", "op",
-                                                "time_s", "mem_bytes"])
+                                                "time_s", "mem_bytes", "result"],
+                                extrasaction="ignore")
         writer.writeheader()
         writer.writerows(records)
 

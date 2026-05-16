@@ -960,32 +960,32 @@ static PyObject *__pyx_pf_3src_10cy_untyped_13matrix_ops_cy_4matrix_add(CYTHON_U
   goto __pyx_L0;
 </pre><pre class="cython line score-0">&#xA0;<span class="">37</span>: </pre>
 <pre class="cython line score-0">&#xA0;<span class="">38</span>: </pre>
-<pre class="cython line score-43" onclick="(function(f,s,c){c=f.nodeValue=='+';s.display=c?'block':'none';f.nodeValue=c?'−':'+'})(this.firstChild,this.nextElementSibling.style)">+<span class="">39</span>: <span class="k">def</span><span class="w"> </span><span class="nf">monte_carlo_pi</span><span class="p">(</span><span class="nb">int</span> <span class="n">n_samples</span><span class="p">):</span></pre>
+<pre class="cython line score-43" onclick="(function(f,s,c){c=f.nodeValue=='+';s.display=c?'block':'none';f.nodeValue=c?'−':'+'})(this.firstChild,this.nextElementSibling.style)">+<span class="">39</span>: <span class="k">def</span><span class="w"> </span><span class="nf">simulate_dice_game</span><span class="p">(</span><span class="nb">int</span> <span class="n">n_rounds</span><span class="p">):</span></pre>
 <pre class='cython code score-43 '>/* Python wrapper */
-static PyObject *__pyx_pw_3src_10cy_untyped_13matrix_ops_cy_7monte_carlo_pi(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_3src_10cy_untyped_13matrix_ops_cy_7simulate_dice_game(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-<span class='py_macro_api'>PyDoc_STRVAR</span>(__pyx_doc_3src_10cy_untyped_13matrix_ops_cy_6monte_carlo_pi, "\n    Monte Carlo pi estimation \342\200\224 untyped Cython.\n    Variables x, y, inside are still PyObject* \342\200\224 boxing remains.\n    Only the interpreter dispatch loop is eliminated.\n    ");
-static PyMethodDef __pyx_mdef_3src_10cy_untyped_13matrix_ops_cy_7monte_carlo_pi = {"monte_carlo_pi", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_3src_10cy_untyped_13matrix_ops_cy_7monte_carlo_pi, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_3src_10cy_untyped_13matrix_ops_cy_6monte_carlo_pi};
-static PyObject *__pyx_pw_3src_10cy_untyped_13matrix_ops_cy_7monte_carlo_pi(PyObject *__pyx_self, 
+<span class='py_macro_api'>PyDoc_STRVAR</span>(__pyx_doc_3src_10cy_untyped_13matrix_ops_cy_6simulate_dice_game, "\n    Monte Carlo dice game \342\200\224 untyped Cython.\n\n    Roll 2 dice per round, win if sum &gt;= 7.\n    Variables die1, die2, wins are still PyObject* \342\200\224 boxing remains.\n    Only the interpreter dispatch loop is eliminated.\n    ");
+static PyMethodDef __pyx_mdef_3src_10cy_untyped_13matrix_ops_cy_7simulate_dice_game = {"simulate_dice_game", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_3src_10cy_untyped_13matrix_ops_cy_7simulate_dice_game, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_3src_10cy_untyped_13matrix_ops_cy_6simulate_dice_game};
+static PyObject *__pyx_pw_3src_10cy_untyped_13matrix_ops_cy_7simulate_dice_game(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ) {
-  int __pyx_v_n_samples;
+  int __pyx_v_n_rounds;
   #if !CYTHON_METH_FASTCALL
   CYTHON_UNUSED Py_ssize_t __pyx_nargs;
   #endif
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
-  <span class='refnanny'>__Pyx_RefNannySetupContext</span>("monte_carlo_pi (wrapper)", 0);
+  <span class='refnanny'>__Pyx_RefNannySetupContext</span>("simulate_dice_game (wrapper)", 0);
   #if !CYTHON_METH_FASTCALL
   #if CYTHON_ASSUME_SAFE_SIZE
   __pyx_nargs = <span class='py_macro_api'>PyTuple_GET_SIZE</span>(__pyx_args);
@@ -995,7 +995,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   #endif
   __pyx_kwvalues = <span class='pyx_c_api'>__Pyx_KwValues_FASTCALL</span>(__pyx_args, __pyx_nargs);
   {
-    PyObject ** const __pyx_pyargnames[] = {&amp;__pyx_mstate_global-&gt;__pyx_n_u_n_samples,0};
+    PyObject ** const __pyx_pyargnames[] = {&amp;__pyx_mstate_global-&gt;__pyx_n_u_n_rounds,0};
   PyObject* values[1] = {0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? <span class='pyx_c_api'>__Pyx_NumKwargs_FASTCALL</span>(__pyx_kwds) : 0;
     if (unlikely(__pyx_kwds_len) &lt; 0) <span class='error_goto'>__PYX_ERR(0, 39, __pyx_L3_error)</span>
@@ -1009,9 +1009,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (<span class='pyx_c_api'>__Pyx_ParseKeywords</span>(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "monte_carlo_pi", 0) &lt; (0)) <span class='error_goto'>__PYX_ERR(0, 39, __pyx_L3_error)</span>
+      if (<span class='pyx_c_api'>__Pyx_ParseKeywords</span>(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "simulate_dice_game", 0) &lt; (0)) <span class='error_goto'>__PYX_ERR(0, 39, __pyx_L3_error)</span>
       for (Py_ssize_t i = __pyx_nargs; i &lt; 1; i++) {
-        if (unlikely(!values[i])) { <span class='pyx_c_api'>__Pyx_RaiseArgtupleInvalid</span>("monte_carlo_pi", 1, 1, 1, i); <span class='error_goto'>__PYX_ERR(0, 39, __pyx_L3_error)</span> }
+        if (unlikely(!values[i])) { <span class='pyx_c_api'>__Pyx_RaiseArgtupleInvalid</span>("simulate_dice_game", 1, 1, 1, i); <span class='error_goto'>__PYX_ERR(0, 39, __pyx_L3_error)</span> }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -1019,22 +1019,22 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       values[0] = <span class='pyx_c_api'>__Pyx_ArgRef_FASTCALL</span>(__pyx_args, 0);
       if (!CYTHON_ASSUME_SAFE_MACROS &amp;&amp; unlikely(!values[0])) <span class='error_goto'>__PYX_ERR(0, 39, __pyx_L3_error)</span>
     }
-    __pyx_v_n_samples = <span class='pyx_c_api'>__Pyx_PyLong_As_int</span>(values[0]); if (unlikely((__pyx_v_n_samples == (int)-1) &amp;&amp; <span class='py_c_api'>PyErr_Occurred</span>())) <span class='error_goto'>__PYX_ERR(0, 39, __pyx_L3_error)</span>
+    __pyx_v_n_rounds = <span class='pyx_c_api'>__Pyx_PyLong_As_int</span>(values[0]); if (unlikely((__pyx_v_n_rounds == (int)-1) &amp;&amp; <span class='py_c_api'>PyErr_Occurred</span>())) <span class='error_goto'>__PYX_ERR(0, 39, __pyx_L3_error)</span>
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  <span class='pyx_c_api'>__Pyx_RaiseArgtupleInvalid</span>("monte_carlo_pi", 1, 1, 1, __pyx_nargs); <span class='error_goto'>__PYX_ERR(0, 39, __pyx_L3_error)</span>
+  <span class='pyx_c_api'>__Pyx_RaiseArgtupleInvalid</span>("simulate_dice_game", 1, 1, 1, __pyx_nargs); <span class='error_goto'>__PYX_ERR(0, 39, __pyx_L3_error)</span>
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
   for (Py_ssize_t __pyx_temp=0; __pyx_temp &lt; (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("src.cy_untyped.matrix_ops_cy.monte_carlo_pi", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("src.cy_untyped.matrix_ops_cy.simulate_dice_game", __pyx_clineno, __pyx_lineno, __pyx_filename);
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3src_10cy_untyped_13matrix_ops_cy_6monte_carlo_pi(__pyx_self, __pyx_v_n_samples);
+  __pyx_r = __pyx_pf_3src_10cy_untyped_13matrix_ops_cy_6simulate_dice_game(__pyx_self, __pyx_v_n_rounds);
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -1047,98 +1047,81 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3src_10cy_untyped_13matrix_ops_cy_6monte_carlo_pi(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_n_samples) {
+static PyObject *__pyx_pf_3src_10cy_untyped_13matrix_ops_cy_6simulate_dice_game(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_n_rounds) {
   PyObject *__pyx_v_random = NULL;
-  PyObject *__pyx_v_inside = NULL;
+  PyObject *__pyx_v_wins = NULL;
   CYTHON_UNUSED int __pyx_v__;
-  PyObject *__pyx_v_x = NULL;
-  PyObject *__pyx_v_y = NULL;
+  PyObject *__pyx_v_die1 = NULL;
+  PyObject *__pyx_v_die2 = NULL;
   PyObject *__pyx_r = NULL;
 /* … */
-  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_CyFunction_New</span>(&amp;__pyx_mdef_3src_10cy_untyped_13matrix_ops_cy_7monte_carlo_pi, 0, __pyx_mstate_global-&gt;__pyx_n_u_monte_carlo_pi, NULL, __pyx_mstate_global-&gt;__pyx_n_u_src_cy_untyped_matrix_ops_cy, __pyx_mstate_global-&gt;__pyx_d, ((PyObject *)__pyx_mstate_global-&gt;__pyx_codeobj_tab[3]));<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 39, __pyx_L1_error)</span>
+  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_CyFunction_New</span>(&amp;__pyx_mdef_3src_10cy_untyped_13matrix_ops_cy_7simulate_dice_game, 0, __pyx_mstate_global-&gt;__pyx_n_u_simulate_dice_game, NULL, __pyx_mstate_global-&gt;__pyx_n_u_src_cy_untyped_matrix_ops_cy, __pyx_mstate_global-&gt;__pyx_d, ((PyObject *)__pyx_mstate_global-&gt;__pyx_codeobj_tab[3]));<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 39, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
   #if CYTHON_COMPILING_IN_CPYTHON &amp;&amp; PY_VERSION_HEX &gt;= 0x030E0000
   <span class='py_c_api'>PyUnstable_Object_EnableDeferredRefcount</span>(__pyx_t_2);
   #endif
-  if (<span class='py_c_api'>PyDict_SetItem</span>(__pyx_mstate_global-&gt;__pyx_d, __pyx_mstate_global-&gt;__pyx_n_u_monte_carlo_pi, __pyx_t_2) &lt; (0)) <span class='error_goto'>__PYX_ERR(0, 39, __pyx_L1_error)</span>
+  if (<span class='py_c_api'>PyDict_SetItem</span>(__pyx_mstate_global-&gt;__pyx_d, __pyx_mstate_global-&gt;__pyx_n_u_simulate_dice_game, __pyx_t_2) &lt; (0)) <span class='error_goto'>__PYX_ERR(0, 39, __pyx_L1_error)</span>
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_2); __pyx_t_2 = 0;
 </pre><pre class="cython line score-0">&#xA0;<span class="">40</span>: <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">41</span>: <span class="sd">    Monte Carlo pi estimation — untyped Cython.</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">42</span>: <span class="sd">    Variables x, y, inside are still PyObject* — boxing remains.</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">43</span>: <span class="sd">    Only the interpreter dispatch loop is eliminated.</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">44</span>: <span class="sd">    &quot;&quot;&quot;</span></pre>
-<pre class="cython line score-2" onclick="(function(f,s,c){c=f.nodeValue=='+';s.display=c?'block':'none';f.nodeValue=c?'−':'+'})(this.firstChild,this.nextElementSibling.style)">+<span class="">45</span>:     <span class="k">import</span><span class="w"> </span><span class="nn">random</span></pre>
-<pre class='cython code score-2 '>  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_Import</span>(__pyx_mstate_global-&gt;__pyx_n_u_random, 0, 0, NULL, 0);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 45, __pyx_L1_error)</span>
+<pre class="cython line score-0">&#xA0;<span class="">41</span>: <span class="sd">    Monte Carlo dice game — untyped Cython.</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">42</span>: </pre>
+<pre class="cython line score-0">&#xA0;<span class="">43</span>: <span class="sd">    Roll 2 dice per round, win if sum &gt;= 7.</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">44</span>: <span class="sd">    Variables die1, die2, wins are still PyObject* — boxing remains.</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">45</span>: <span class="sd">    Only the interpreter dispatch loop is eliminated.</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">46</span>: <span class="sd">    &quot;&quot;&quot;</span></pre>
+<pre class="cython line score-2" onclick="(function(f,s,c){c=f.nodeValue=='+';s.display=c?'block':'none';f.nodeValue=c?'−':'+'})(this.firstChild,this.nextElementSibling.style)">+<span class="">47</span>:     <span class="k">import</span><span class="w"> </span><span class="nn">random</span></pre>
+<pre class='cython code score-2 '>  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_Import</span>(__pyx_mstate_global-&gt;__pyx_n_u_random, 0, 0, NULL, 0);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 47, __pyx_L1_error)</span>
   __pyx_t_1 = __pyx_t_2;
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   __pyx_v_random = __pyx_t_1;
   __pyx_t_1 = 0;
-</pre><pre class="cython line score-1" onclick="(function(f,s,c){c=f.nodeValue=='+';s.display=c?'block':'none';f.nodeValue=c?'−':'+'})(this.firstChild,this.nextElementSibling.style)">+<span class="">46</span>:     <span class="n">inside</span> <span class="o">=</span> <span class="mf">0</span></pre>
+</pre><pre class="cython line score-1" onclick="(function(f,s,c){c=f.nodeValue=='+';s.display=c?'block':'none';f.nodeValue=c?'−':'+'})(this.firstChild,this.nextElementSibling.style)">+<span class="">48</span>:     <span class="n">wins</span> <span class="o">=</span> <span class="mf">0</span></pre>
 <pre class='cython code score-1 '>  <span class='pyx_macro_api'>__Pyx_INCREF</span>(__pyx_mstate_global-&gt;__pyx_int_0);
-  __pyx_v_inside = __pyx_mstate_global-&gt;__pyx_int_0;
-</pre><pre class="cython line score-0" onclick="(function(f,s,c){c=f.nodeValue=='+';s.display=c?'block':'none';f.nodeValue=c?'−':'+'})(this.firstChild,this.nextElementSibling.style)">+<span class="">47</span>:     <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_samples</span><span class="p">):</span></pre>
-<pre class='cython code score-0 '>  __pyx_t_3 = __pyx_v_n_samples;
+  __pyx_v_wins = __pyx_mstate_global-&gt;__pyx_int_0;
+</pre><pre class="cython line score-0" onclick="(function(f,s,c){c=f.nodeValue=='+';s.display=c?'block':'none';f.nodeValue=c?'−':'+'})(this.firstChild,this.nextElementSibling.style)">+<span class="">49</span>:     <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_rounds</span><span class="p">):</span></pre>
+<pre class='cython code score-0 '>  __pyx_t_3 = __pyx_v_n_rounds;
   __pyx_t_4 = __pyx_t_3;
   for (__pyx_t_5 = 0; __pyx_t_5 &lt; __pyx_t_4; __pyx_t_5+=1) {
     __pyx_v__ = __pyx_t_5;
-</pre><pre class="cython line score-5" onclick="(function(f,s,c){c=f.nodeValue=='+';s.display=c?'block':'none';f.nodeValue=c?'−':'+'})(this.firstChild,this.nextElementSibling.style)">+<span class="">48</span>:         <span class="n">x</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span></pre>
-<pre class='cython code score-5 '>    __pyx_t_6 = __pyx_v_random;
-    <span class='pyx_macro_api'>__Pyx_INCREF</span>(__pyx_t_6);
-    __pyx_t_7 = 0;
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_6, NULL};
-      __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_FastCallMethod</span>((PyObject*)__pyx_mstate_global-&gt;__pyx_n_u_random, __pyx_callargs+__pyx_t_7, (1-__pyx_t_7) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_1)) <span class='error_goto'>__PYX_ERR(0, 48, __pyx_L1_error)</span>
-      <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
-    }
-    <span class='pyx_macro_api'>__Pyx_XDECREF_SET</span>(__pyx_v_x, __pyx_t_1);
-    __pyx_t_1 = 0;
-</pre><pre class="cython line score-5" onclick="(function(f,s,c){c=f.nodeValue=='+';s.display=c?'block':'none';f.nodeValue=c?'−':'+'})(this.firstChild,this.nextElementSibling.style)">+<span class="">49</span>:         <span class="n">y</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span></pre>
-<pre class='cython code score-5 '>    __pyx_t_6 = __pyx_v_random;
-    <span class='pyx_macro_api'>__Pyx_INCREF</span>(__pyx_t_6);
-    __pyx_t_7 = 0;
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_6, NULL};
-      __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_FastCallMethod</span>((PyObject*)__pyx_mstate_global-&gt;__pyx_n_u_random, __pyx_callargs+__pyx_t_7, (1-__pyx_t_7) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_1)) <span class='error_goto'>__PYX_ERR(0, 49, __pyx_L1_error)</span>
-      <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
-    }
-    <span class='pyx_macro_api'>__Pyx_XDECREF_SET</span>(__pyx_v_y, __pyx_t_1);
-    __pyx_t_1 = 0;
-</pre><pre class="cython line score-26" onclick="(function(f,s,c){c=f.nodeValue=='+';s.display=c?'block':'none';f.nodeValue=c?'−':'+'})(this.firstChild,this.nextElementSibling.style)">+<span class="">50</span>:         <span class="k">if</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">*</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mf">1.0</span><span class="p">:</span></pre>
-<pre class='cython code score-26 '>    __pyx_t_1 = <span class='py_c_api'>PyNumber_Multiply</span>(__pyx_v_x, __pyx_v_x);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 50, __pyx_L1_error)</span>
+</pre><pre class="cython line score-6" onclick="(function(f,s,c){c=f.nodeValue=='+';s.display=c?'block':'none';f.nodeValue=c?'−':'+'})(this.firstChild,this.nextElementSibling.style)">+<span class="">50</span>:         <span class="n">die1</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">6</span><span class="p">)</span></pre>
+<pre class='cython code score-6 '>    __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_GetAttrStr</span>(__pyx_v_random, __pyx_mstate_global-&gt;__pyx_n_u_randint);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 50, __pyx_L1_error)</span>
     <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
-    __pyx_t_6 = <span class='py_c_api'>PyNumber_Multiply</span>(__pyx_v_y, __pyx_v_y);<span class='error_goto'> if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 50, __pyx_L1_error)</span>
+    __pyx_t_6 = <span class='pyx_c_api'>__Pyx_PyObject_Call</span>(__pyx_t_1, __pyx_mstate_global-&gt;__pyx_tuple[0], NULL);<span class='error_goto'> if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 50, __pyx_L1_error)</span>
     <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_6);
-    __pyx_t_8 = <span class='py_c_api'>PyNumber_Add</span>(__pyx_t_1, __pyx_t_6);<span class='error_goto'> if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 50, __pyx_L1_error)</span>
-    <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_8);
     <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_1); __pyx_t_1 = 0;
+    <span class='pyx_macro_api'>__Pyx_XDECREF_SET</span>(__pyx_v_die1, __pyx_t_6);
+    __pyx_t_6 = 0;
+</pre><pre class="cython line score-6" onclick="(function(f,s,c){c=f.nodeValue=='+';s.display=c?'block':'none';f.nodeValue=c?'−':'+'})(this.firstChild,this.nextElementSibling.style)">+<span class="">51</span>:         <span class="n">die2</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">6</span><span class="p">)</span></pre>
+<pre class='cython code score-6 '>    __pyx_t_6 = <span class='pyx_c_api'>__Pyx_PyObject_GetAttrStr</span>(__pyx_v_random, __pyx_mstate_global-&gt;__pyx_n_u_randint);<span class='error_goto'> if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 51, __pyx_L1_error)</span>
+    <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_6);
+    __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_Call</span>(__pyx_t_6, __pyx_mstate_global-&gt;__pyx_tuple[0], NULL);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 51, __pyx_L1_error)</span>
+    <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
     <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_6 = <span class='py_c_api'>PyObject_RichCompare</span>(__pyx_t_8, __pyx_mstate_global-&gt;__pyx_float_1_0, Py_LT); <span class='refnanny'>__Pyx_XGOTREF</span>(__pyx_t_6);<span class='error_goto'> if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 50, __pyx_L1_error)</span>
-    <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_9 = <span class='pyx_c_api'>__Pyx_PyObject_IsTrue</span>(__pyx_t_6); if (unlikely((__pyx_t_9 &lt; 0))) <span class='error_goto'>__PYX_ERR(0, 50, __pyx_L1_error)</span>
+    <span class='pyx_macro_api'>__Pyx_XDECREF_SET</span>(__pyx_v_die2, __pyx_t_1);
+    __pyx_t_1 = 0;
+</pre><pre class="cython line score-14" onclick="(function(f,s,c){c=f.nodeValue=='+';s.display=c?'block':'none';f.nodeValue=c?'−':'+'})(this.firstChild,this.nextElementSibling.style)">+<span class="">52</span>:         <span class="k">if</span> <span class="n">die1</span> <span class="o">+</span> <span class="n">die2</span> <span class="o">&gt;=</span> <span class="mf">7</span><span class="p">:</span></pre>
+<pre class='cython code score-14 '>    __pyx_t_1 = <span class='py_c_api'>PyNumber_Add</span>(__pyx_v_die1, __pyx_v_die2);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)</span>
+    <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
+    __pyx_t_6 = <span class='py_c_api'>PyObject_RichCompare</span>(__pyx_t_1, __pyx_mstate_global-&gt;__pyx_int_7, Py_GE); <span class='refnanny'>__Pyx_XGOTREF</span>(__pyx_t_6);<span class='error_goto'> if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 52, __pyx_L1_error)</span>
+    <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_7 = <span class='pyx_c_api'>__Pyx_PyObject_IsTrue</span>(__pyx_t_6); if (unlikely((__pyx_t_7 &lt; 0))) <span class='error_goto'>__PYX_ERR(0, 52, __pyx_L1_error)</span>
     <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_6); __pyx_t_6 = 0;
-    if (__pyx_t_9) {
+    if (__pyx_t_7) {
 /* … */
     }
   }
-</pre><pre class="cython line score-3" onclick="(function(f,s,c){c=f.nodeValue=='+';s.display=c?'block':'none';f.nodeValue=c?'−':'+'})(this.firstChild,this.nextElementSibling.style)">+<span class="">51</span>:             <span class="n">inside</span> <span class="o">+=</span> <span class="mf">1</span></pre>
-<pre class='cython code score-3 '>      __pyx_t_6 = <span class='pyx_c_api'>__Pyx_PyLong_AddObjC</span>(__pyx_v_inside, __pyx_mstate_global-&gt;__pyx_int_1, 1, 1, 0);<span class='error_goto'> if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 51, __pyx_L1_error)</span>
+</pre><pre class="cython line score-3" onclick="(function(f,s,c){c=f.nodeValue=='+';s.display=c?'block':'none';f.nodeValue=c?'−':'+'})(this.firstChild,this.nextElementSibling.style)">+<span class="">53</span>:             <span class="n">wins</span> <span class="o">+=</span> <span class="mf">1</span></pre>
+<pre class='cython code score-3 '>      __pyx_t_6 = <span class='pyx_c_api'>__Pyx_PyLong_AddObjC</span>(__pyx_v_wins, __pyx_mstate_global-&gt;__pyx_int_1, 1, 1, 0);<span class='error_goto'> if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 53, __pyx_L1_error)</span>
       <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_6);
-      <span class='pyx_macro_api'>__Pyx_DECREF_SET</span>(__pyx_v_inside, __pyx_t_6);
+      <span class='pyx_macro_api'>__Pyx_DECREF_SET</span>(__pyx_v_wins, __pyx_t_6);
       __pyx_t_6 = 0;
-</pre><pre class="cython line score-12" onclick="(function(f,s,c){c=f.nodeValue=='+';s.display=c?'block':'none';f.nodeValue=c?'−':'+'})(this.firstChild,this.nextElementSibling.style)">+<span class="">52</span>:     <span class="k">return</span> <span class="mf">4.0</span> <span class="o">*</span> <span class="n">inside</span> <span class="o">/</span> <span class="n">n_samples</span></pre>
-<pre class='cython code score-12 '>  <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_r);
-  __pyx_t_6 = <span class='py_c_api'>PyNumber_Multiply</span>(__pyx_mstate_global-&gt;__pyx_float_4_0, __pyx_v_inside);<span class='error_goto'> if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 52, __pyx_L1_error)</span>
+</pre><pre class="cython line score-6" onclick="(function(f,s,c){c=f.nodeValue=='+';s.display=c?'block':'none';f.nodeValue=c?'−':'+'})(this.firstChild,this.nextElementSibling.style)">+<span class="">54</span>:     <span class="k">return</span> <span class="n">wins</span> <span class="o">/</span> <span class="n">n_rounds</span></pre>
+<pre class='cython code score-6 '>  <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_r);
+  __pyx_t_6 = <span class='pyx_c_api'>__Pyx_PyLong_From_int</span>(__pyx_v_n_rounds);<span class='error_goto'> if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 54, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_6);
-  __pyx_t_8 = <span class='pyx_c_api'>__Pyx_PyLong_From_int</span>(__pyx_v_n_samples);<span class='error_goto'> if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 52, __pyx_L1_error)</span>
-  <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_8);
-  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyNumber_Divide</span>(__pyx_t_6, __pyx_t_8);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)</span>
+  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyNumber_Divide</span>(__pyx_v_wins, __pyx_t_6);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_6); __pyx_t_6 = 0;
-  <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_8); __pyx_t_8 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;

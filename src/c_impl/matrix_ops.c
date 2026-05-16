@@ -1,5 +1,5 @@
 /*
- * matrix_ops.c — pure C matrix operations + Monte Carlo pi estimation.
+ * matrix_ops.c — pure C matrix operations + dice game Monte Carlo simulation.
  *
  * Compile standalone benchmark (outputs JSON):
  *   Windows MSVC (from VS Developer Prompt):
@@ -68,24 +68,23 @@ void matrix_add(const double * restrict A,
 }
 
 /* -------------------------------------------------------------------------
- * monte_carlo_pi — estimate pi by throwing random darts
+ * simulate_dice_game — Monte Carlo dice game
  *
- * Throw n_samples points uniformly into [0,1)^2.
- * Count how many land inside the unit circle (x^2 + y^2 < 1).
- * pi ~ 4 * inside / n_samples
+ * Roll 2 six-sided dice per round, win if sum >= 7.
+ * Returns estimated win probability after n_rounds rounds.
+ * True probability = 21/36 ≈ 0.5833.
  *
  * Uses rand() — same approach as Cython typed version.
  * All variables are C types on the stack: no malloc, no boxing.
  * ---------------------------------------------------------------------- */
-double monte_carlo_pi(int n_samples) {
-    int inside = 0;
-    double inv = 1.0 / RAND_MAX;
-    for (int i = 0; i < n_samples; i++) {
-        double x = rand() * inv;
-        double y = rand() * inv;
-        if (x * x + y * y < 1.0) inside++;
+double simulate_dice_game(int n_rounds) {
+    int wins = 0;
+    for (int i = 0; i < n_rounds; i++) {
+        int die1 = rand() % 6 + 1;
+        int die2 = rand() % 6 + 1;
+        if (die1 + die2 >= 7) wins++;
     }
-    return 4.0 * inside / n_samples;
+    return (double)wins / n_rounds;
 }
 
 /* -------------------------------------------------------------------------
@@ -160,17 +159,18 @@ int main(void) {
         free_matrix(A); free_matrix(B); free_matrix(C);
     }
 
-    /* ── Monte Carlo ───────────────────────────────────────────────────── */
+    /* ── Monte Carlo dice game ─────────────────────────────────────────── */
     double best_mc = 1e18;
+    double mc_result = 0.0;
     for (int r = 0; r < nruns; r++) {
         srand(42);
         double t0 = wall_time();
-        monte_carlo_pi(mc_n);
+        double res = simulate_dice_game(mc_n);
         double dt = wall_time() - t0;
-        if (dt < best_mc) best_mc = dt;
+        if (dt < best_mc) { best_mc = dt; mc_result = res; }
     }
-    printf(",\n  {\"impl\":\"c\",\"N\":%d,\"op\":\"monte_carlo\",\"time_s\":%.9f,\"mem_bytes\":0}",
-           mc_n, best_mc);
+    printf(",\n  {\"impl\":\"c\",\"N\":%d,\"op\":\"monte_carlo\",\"time_s\":%.9f,\"mem_bytes\":0,\"result\":%.6f}",
+           mc_n, best_mc, mc_result);
 
     printf("\n]\n");
     return 0;

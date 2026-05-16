@@ -3,140 +3,144 @@
     "impl": "python",
     "N": 64,
     "op": "matmul",
-    "time_s": 0.014982799999415874,
+    "time_s": 0.02298700000392273,
     "mem_bytes": 135448
   },
   {
     "impl": "python",
     "N": 64,
     "op": "matrix_add",
-    "time_s": 0.00027439999394118786,
+    "time_s": 0.0003667000273708254,
     "mem_bytes": 129248
   },
   {
     "impl": "cy_untyped",
     "N": 64,
     "op": "matmul",
-    "time_s": 0.008037299965508282,
+    "time_s": 0.011876099975779653,
     "mem_bytes": 129232
   },
   {
     "impl": "cy_untyped",
     "N": 64,
     "op": "matrix_add",
-    "time_s": 0.00011779996566474438,
+    "time_s": 0.00014899999951012433,
     "mem_bytes": 129184
   },
   {
     "impl": "cy_typed",
     "N": 64,
     "op": "matmul",
-    "time_s": 0.0002294000005349517,
+    "time_s": 0.0002992000081576407,
     "mem_bytes": 33776
   },
   {
     "impl": "cy_typed",
     "N": 64,
     "op": "matrix_add",
-    "time_s": 5.499983672052622e-06,
+    "time_s": 6.700021913275123e-06,
     "mem_bytes": 33568
   },
   {
     "impl": "python",
     "N": 128,
     "op": "matmul",
-    "time_s": 0.1444637999520637,
+    "time_s": 0.17477189999772236,
     "mem_bytes": 525880
   },
   {
     "impl": "python",
     "N": 128,
     "op": "matrix_add",
-    "time_s": 0.0010577000211924314,
+    "time_s": 0.0015573999844491482,
     "mem_bytes": 525776
   },
   {
     "impl": "cy_untyped",
     "N": 128,
     "op": "matmul",
-    "time_s": 0.06839259999105707,
+    "time_s": 0.10965879997820593,
     "mem_bytes": 525704
   },
   {
     "impl": "cy_untyped",
     "N": 128,
     "op": "matrix_add",
-    "time_s": 0.0004632000345736742,
+    "time_s": 0.0006342999986372888,
     "mem_bytes": 525656
   },
   {
     "impl": "cy_typed",
     "N": 128,
     "op": "matmul",
-    "time_s": 0.0021614000434055924,
+    "time_s": 0.0025892000121530145,
     "mem_bytes": 132048
   },
   {
     "impl": "cy_typed",
     "N": 128,
     "op": "matrix_add",
-    "time_s": 1.9599974621087313e-05,
+    "time_s": 1.960000372491777e-05,
     "mem_bytes": 131872
   },
   {
     "impl": "python",
     "N": 1000000,
     "op": "monte_carlo",
-    "time_s": 0.16419500001939014,
-    "mem_bytes": 128
+    "time_s": 1.3816361999779474,
+    "mem_bytes": 168,
+    "result": 0.584045
   },
   {
     "impl": "cy_untyped",
     "N": 1000000,
     "op": "monte_carlo",
-    "time_s": 0.1028158999979496,
-    "mem_bytes": 64
+    "time_s": 1.310084700002335,
+    "mem_bytes": 104,
+    "result": 0.58365
   },
   {
     "impl": "cy_typed",
     "N": 1000000,
     "op": "monte_carlo",
-    "time_s": 0.013480300025548786,
-    "mem_bytes": 0
+    "time_s": 0.0190223999961745,
+    "mem_bytes": 0,
+    "result": 0.583378
   },
   {
     "impl": "c",
     "N": 64,
     "op": "matmul",
-    "time_s": 0.0001155,
+    "time_s": 0.0003429,
     "mem_bytes": 0
   },
   {
     "impl": "c",
     "N": 64,
     "op": "matrix_add",
-    "time_s": 1.8e-06,
+    "time_s": 2.5e-06,
     "mem_bytes": 0
   },
   {
     "impl": "c",
     "N": 128,
     "op": "matmul",
-    "time_s": 0.0009763,
+    "time_s": 0.0028284,
     "mem_bytes": 0
   },
   {
     "impl": "c",
     "N": 128,
     "op": "matrix_add",
-    "time_s": 6.9e-06,
+    "time_s": 9.9e-06,
     "mem_bytes": 0
   },
   {
     "impl": "c",
     "N": 1000000,
     "op": "monte_carlo",
-    "time_s": 0.0115211,
-    "mem_bytes": 0
+    "time_s": 0.0179018,
+    "mem_bytes": 0,
+    "result": 0.583378
   }
 ]

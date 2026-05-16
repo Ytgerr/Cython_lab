@@ -77,15 +77,15 @@
       <div class="label">Cython untyped speedup (matmul)</div>
     </div>
     <div class="card green">
-      <div class="value">~67x</div>
+      <div class="value">~77x</div>
       <div class="label">Cython typed speedup (matmul)</div>
     </div>
     <div class="card green">
-      <div class="value">~12x</div>
+      <div class="value">~73x</div>
       <div class="label">Cython typed speedup (Monte Carlo)</div>
     </div>
     <div class="card blue">
-      <div class="value">~14x</div>
+      <div class="value">~77x</div>
       <div class="label">C standalone speedup (Monte Carlo)</div>
     </div>
   </div>
@@ -139,11 +139,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td>64x64</td><td>matmul  O(n^3)</td><td>15.0 ms</td><td>8.0 ms</td><td>0.229 ms</td><td>0.116 ms</td><td><b style="color:#e67e22">1.9x</b></td><td><b style="color:#27ae60">65.3x</b></td><td><b style="color:#3498db">129.7x</b></td><td>132 KB</td><td>33 KB</td><td>4.0x</td></tr>
-<tr><td>128x128</td><td>matmul  O(n^3)</td><td>144.5 ms</td><td>68.4 ms</td><td>2.2 ms</td><td>0.976 ms</td><td><b style="color:#e67e22">2.1x</b></td><td><b style="color:#27ae60">66.8x</b></td><td><b style="color:#3498db">148.0x</b></td><td>514 KB</td><td>129 KB</td><td>4.0x</td></tr>
-<tr><td>64x64</td><td>matrix_add  O(n^2)</td><td>0.274 ms</td><td>0.118 ms</td><td>5.50 us</td><td>1.80 us</td><td><b style="color:#e67e22">2.3x</b></td><td><b style="color:#27ae60">49.9x</b></td><td><b style="color:#3498db">152.4x</b></td><td>126 KB</td><td>33 KB</td><td>3.9x</td></tr>
-<tr><td>128x128</td><td>matrix_add  O(n^2)</td><td>1.1 ms</td><td>0.463 ms</td><td>0.020 ms</td><td>6.90 us</td><td><b style="color:#e67e22">2.3x</b></td><td><b style="color:#27ae60">54.0x</b></td><td><b style="color:#3498db">153.3x</b></td><td>513 KB</td><td>129 KB</td><td>4.0x</td></tr>
-<tr><td>n=1,000,000</td><td>Monte Carlo pi  (scalar loop)</td><td>164.2 ms</td><td>102.8 ms</td><td>13.5 ms</td><td>11.5 ms</td><td><b style="color:#e67e22">1.6x</b></td><td><b style="color:#27ae60">12.2x</b></td><td><b style="color:#3498db">14.3x</b></td><td>0 KB</td><td>0 KB</td><td>-</td></tr>
+        <tr><td>64x64</td><td>matmul  O(n^3)</td><td>23.0 ms</td><td>11.9 ms</td><td>0.299 ms</td><td>0.343 ms</td><td><b style="color:#e67e22">1.9x</b></td><td><b style="color:#27ae60">76.8x</b></td><td><b style="color:#3498db">67.0x</b></td><td>132 KB</td><td>33 KB</td><td>4.0x</td></tr>
+<tr><td>128x128</td><td>matmul  O(n^3)</td><td>174.8 ms</td><td>109.7 ms</td><td>2.6 ms</td><td>2.8 ms</td><td><b style="color:#e67e22">1.6x</b></td><td><b style="color:#27ae60">67.5x</b></td><td><b style="color:#3498db">61.8x</b></td><td>514 KB</td><td>129 KB</td><td>4.0x</td></tr>
+<tr><td>64x64</td><td>matrix_add  O(n^2)</td><td>0.367 ms</td><td>0.149 ms</td><td>6.70 us</td><td>2.50 us</td><td><b style="color:#e67e22">2.5x</b></td><td><b style="color:#27ae60">54.7x</b></td><td><b style="color:#3498db">146.7x</b></td><td>126 KB</td><td>33 KB</td><td>3.9x</td></tr>
+<tr><td>128x128</td><td>matrix_add  O(n^2)</td><td>1.6 ms</td><td>0.634 ms</td><td>0.020 ms</td><td>9.90 us</td><td><b style="color:#e67e22">2.5x</b></td><td><b style="color:#27ae60">79.5x</b></td><td><b style="color:#3498db">157.3x</b></td><td>513 KB</td><td>129 KB</td><td>4.0x</td></tr>
+<tr><td>n=1,000,000</td><td>Dice Game  (roll 2 dice, win if sum ≥ 7)</td><td>1381.6 ms</td><td>1310.1 ms</td><td>19.0 ms</td><td>17.9 ms</td><td><b style="color:#e67e22">1.1x</b></td><td><b style="color:#27ae60">72.6x</b></td><td><b style="color:#3498db">77.2x</b></td><td>0 KB</td><td>0 KB</td><td>-</td></tr>
 
       </tbody>
     </table>

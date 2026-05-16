@@ -36,17 +36,19 @@ def matrix_add(A, B):
     return C
 
 
-def monte_carlo_pi(int n_samples):
+def simulate_dice_game(int n_rounds):
     """
-    Monte Carlo pi estimation — untyped Cython.
-    Variables x, y, inside are still PyObject* — boxing remains.
+    Monte Carlo dice game — untyped Cython.
+
+    Roll 2 dice per round, win if sum >= 7.
+    Variables die1, die2, wins are still PyObject* — boxing remains.
     Only the interpreter dispatch loop is eliminated.
     """
     import random
-    inside = 0
-    for _ in range(n_samples):
-        x = random.random()
-        y = random.random()
-        if x * x + y * y < 1.0:
-            inside += 1
-    return 4.0 * inside / n_samples
+    wins = 0
+    for _ in range(n_rounds):
+        die1 = random.randint(1, 6)
+        die2 = random.randint(1, 6)
+        if die1 + die2 >= 7:
+            wins += 1
+    return wins / n_rounds
